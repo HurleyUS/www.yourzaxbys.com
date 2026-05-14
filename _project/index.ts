@@ -20,16 +20,32 @@ export const outline: Outline = {
   ],
   private: [
     { anchor: "Dashboard", href: "/dashboard", title: "Dashboard Overview" },
-    { anchor: "Analytics", href: "/dashboard/analytics", title: "Performance Analytics" },
-    { anchor: "Reports", href: "/dashboard/reports", title: "Reports & Insights" },
-    { 
-      anchor: "Team", 
-      href: "/dashboard/team", 
+    {
+      anchor: "Analytics",
+      href: "/dashboard/analytics",
+      title: "Performance Analytics",
+    },
+    {
+      anchor: "Reports",
+      href: "/dashboard/reports",
+      title: "Reports & Insights",
+    },
+    {
+      anchor: "Team",
+      href: "/dashboard/team",
       title: "Team Management",
       items: [
-        { anchor: "Members", href: "/dashboard/team/members", title: "Team Members" },
-        { anchor: "Schedule", href: "/dashboard/team/schedule", title: "Schedule" },
-      ]
+        {
+          anchor: "Members",
+          href: "/dashboard/team/members",
+          title: "Team Members",
+        },
+        {
+          anchor: "Schedule",
+          href: "/dashboard/team/schedule",
+          title: "Schedule",
+        },
+      ],
     },
     { anchor: "Settings", href: "/dashboard/settings", title: "Settings" },
   ],

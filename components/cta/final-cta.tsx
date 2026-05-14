@@ -5,7 +5,11 @@ import { ArrowRight, Headphones } from "lucide-react";
 export function FinalCTA() {
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-      <Button size="lg" className="text-lg px-8 py-6 bg-red-600 hover:bg-red-700 text-white" asChild>
+      <Button
+        size="lg"
+        className="text-lg px-8 py-6 bg-red-600 hover:bg-red-700 text-white"
+        asChild
+      >
         <Link href="/signup">
           Get Started Today
           <ArrowRight className="ml-2 h-5 w-5" />

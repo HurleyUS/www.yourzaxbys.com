@@ -2,11 +2,19 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Star, Quote, TrendingUp, DollarSign, Clock, Users } from "lucide-react";
+import {
+  Star,
+  Quote,
+  TrendingUp,
+  DollarSign,
+  Clock,
+  Users,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Testimonials - Zaxby's Franchise Management Platform",
-  description: "Hear from successful Zaxby's franchisees who have transformed their operations with our platform.",
+  description:
+    "Hear from successful Zaxby's franchisees who have transformed their operations with our platform.",
 };
 
 const testimonials = [
@@ -16,13 +24,14 @@ const testimonials = [
     location: "Atlanta, GA",
     image: "/testimonials/sarah-mitchell.jpg",
     rating: 5,
-    quote: "This platform has completely transformed how we manage our 5 locations. We've reduced administrative time by 60% and increased our profit margins by 18%. The real-time analytics help us make data-driven decisions every day.",
+    quote:
+      "This platform has completely transformed how we manage our 5 locations. We've reduced administrative time by 60% and increased our profit margins by 18%. The real-time analytics help us make data-driven decisions every day.",
     results: {
       locations: 5,
       timeSaved: "15hrs/week",
       profitIncrease: "18%",
-      costReduction: "25%"
-    }
+      costReduction: "25%",
+    },
   },
   {
     name: "Michael Rodriguez",
@@ -30,13 +39,14 @@ const testimonials = [
     location: "Dallas, TX",
     image: "/testimonials/michael-rodriguez.jpg",
     rating: 5,
-    quote: "The HR management system alone has saved us thousands of dollars. The automated onboarding process and training management have made our team more efficient and our employees happier.",
+    quote:
+      "The HR management system alone has saved us thousands of dollars. The automated onboarding process and training management have made our team more efficient and our employees happier.",
     results: {
       locations: 3,
       timeSaved: "12hrs/week",
       profitIncrease: "22%",
-      costReduction: "30%"
-    }
+      costReduction: "30%",
+    },
   },
   {
     name: "Jennifer Chen",
@@ -44,13 +54,14 @@ const testimonials = [
     location: "Phoenix, AZ",
     image: "/testimonials/jennifer-chen.jpg",
     rating: 5,
-    quote: "As someone managing 8 locations, I need visibility into everything. This platform gives me real-time insights across all locations, helping me identify issues before they become problems.",
+    quote:
+      "As someone managing 8 locations, I need visibility into everything. This platform gives me real-time insights across all locations, helping me identify issues before they become problems.",
     results: {
       locations: 8,
       timeSaved: "20hrs/week",
       profitIncrease: "15%",
-      costReduction: "28%"
-    }
+      costReduction: "28%",
+    },
   },
   {
     name: "David Thompson",
@@ -58,13 +69,14 @@ const testimonials = [
     location: "Nashville, TN",
     image: "/testimonials/david-thompson.jpg",
     rating: 5,
-    quote: "The maintenance system has been a game-changer. We can track equipment issues, schedule preventive maintenance, and reduce downtime significantly. Our equipment costs have dropped by 35%.",
+    quote:
+      "The maintenance system has been a game-changer. We can track equipment issues, schedule preventive maintenance, and reduce downtime significantly. Our equipment costs have dropped by 35%.",
     results: {
       locations: 2,
       timeSaved: "8hrs/week",
       profitIncrease: "25%",
-      costReduction: "35%"
-    }
+      costReduction: "35%",
+    },
   },
   {
     name: "Lisa Johnson",
@@ -72,13 +84,14 @@ const testimonials = [
     location: "Miami, FL",
     image: "/testimonials/lisa-johnson.jpg",
     rating: 5,
-    quote: "The compliance tracking features have given us peace of mind. We never miss an audit deadline, and our Steritech scores have improved consistently. It's like having a compliance manager built into the system.",
+    quote:
+      "The compliance tracking features have given us peace of mind. We never miss an audit deadline, and our Steritech scores have improved consistently. It's like having a compliance manager built into the system.",
     results: {
       locations: 6,
       timeSaved: "18hrs/week",
       profitIncrease: "20%",
-      costReduction: "22%"
-    }
+      costReduction: "22%",
+    },
   },
   {
     name: "Robert Williams",
@@ -86,21 +99,22 @@ const testimonials = [
     location: "Denver, CO",
     image: "/testimonials/robert-williams.jpg",
     rating: 5,
-    quote: "The uniform management system has streamlined our operations completely. We can track inventory, manage employee assignments, and reduce waste. It's the little things that add up to big savings.",
+    quote:
+      "The uniform management system has streamlined our operations completely. We can track inventory, manage employee assignments, and reduce waste. It's the little things that add up to big savings.",
     results: {
       locations: 4,
       timeSaved: "10hrs/week",
       profitIncrease: "16%",
-      costReduction: "20%"
-    }
-  }
+      costReduction: "20%",
+    },
+  },
 ];
 
 const stats = [
   { label: "Average Rating", value: "4.9★", icon: Star },
   { label: "Time Saved", value: "15hrs/week", icon: Clock },
   { label: "Cost Reduction", value: "25%", icon: DollarSign },
-  { label: "Happy Customers", value: "500+", icon: Users }
+  { label: "Happy Customers", value: "500+", icon: Users },
 ];
 
 export default function TestimonialsPage() {
@@ -118,8 +132,9 @@ export default function TestimonialsPage() {
               <span className="block text-red-600">Are Saying</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Don't just take our word for it. Hear from successful Zaxby's franchisees who have 
-              transformed their operations and achieved remarkable results with our platform.
+              Don't just take our word for it. Hear from successful Zaxby's
+              franchisees who have transformed their operations and achieved
+              remarkable results with our platform.
             </p>
           </div>
         </div>
@@ -134,7 +149,9 @@ export default function TestimonialsPage() {
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="h-8 w-8 text-red-600" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  {stat.value}
+                </div>
                 <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -160,41 +177,62 @@ export default function TestimonialsPage() {
                       />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-600">{testimonial.title}</p>
-                      <p className="text-sm text-red-600">{testimonial.location}</p>
+                      <h3 className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        {testimonial.title}
+                      </p>
+                      <p className="text-sm text-red-600">
+                        {testimonial.location}
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="h-5 w-5 text-yellow-400 fill-current"
+                      />
                     ))}
                   </div>
-                  
+
                   <div className="relative mb-4">
                     <Quote className="h-8 w-8 text-red-200 absolute -top-2 -left-2" />
                     <p className="text-gray-700 italic pl-6">
                       "{testimonial.quote}"
                     </p>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
                     <div className="text-center">
-                      <div className="text-lg font-bold text-red-600">{testimonial.results.locations}</div>
+                      <div className="text-lg font-bold text-red-600">
+                        {testimonial.results.locations}
+                      </div>
                       <div className="text-xs text-gray-600">Locations</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-lg font-bold text-green-600">{testimonial.results.timeSaved}</div>
+                      <div className="text-lg font-bold text-green-600">
+                        {testimonial.results.timeSaved}
+                      </div>
                       <div className="text-xs text-gray-600">Time Saved</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-lg font-bold text-blue-600">{testimonial.results.profitIncrease}</div>
-                      <div className="text-xs text-gray-600">Profit Increase</div>
+                      <div className="text-lg font-bold text-blue-600">
+                        {testimonial.results.profitIncrease}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        Profit Increase
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-lg font-bold text-purple-600">{testimonial.results.costReduction}</div>
-                      <div className="text-xs text-gray-600">Cost Reduction</div>
+                      <div className="text-lg font-bold text-purple-600">
+                        {testimonial.results.costReduction}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        Cost Reduction
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -212,20 +250,27 @@ export default function TestimonialsPage() {
               Watch Success Stories
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how our customers have transformed their operations in their own words.
+              See how our customers have transformed their operations in their
+              own words.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative">
               <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  <p className="text-gray-600">Sarah Mitchell - Multi-Unit Success Story</p>
+                  <p className="text-gray-600">
+                    Sarah Mitchell - Multi-Unit Success Story
+                  </p>
                 </div>
               </div>
             </div>
@@ -233,11 +278,17 @@ export default function TestimonialsPage() {
               <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
-                  <p className="text-gray-600">Michael Rodriguez - HR Management Success</p>
+                  <p className="text-gray-600">
+                    Michael Rodriguez - HR Management Success
+                  </p>
                 </div>
               </div>
             </div>
@@ -252,8 +303,8 @@ export default function TestimonialsPage() {
             Ready to Join These Success Stories?
           </h2>
           <p className="text-xl max-w-3xl mx-auto mb-8 opacity-90">
-            Start your free trial today and discover how our platform can help you achieve 
-            similar results for your franchise operations.
+            Start your free trial today and discover how our platform can help
+            you achieve similar results for your franchise operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-red-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold">

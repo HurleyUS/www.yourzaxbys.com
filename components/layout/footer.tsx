@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Instagram, 
+import {
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
   Youtube,
   Mail,
   Phone,
   MapPin,
-  ArrowUp
+  ArrowUp,
 } from "lucide-react";
 
 const footerLinks = {
@@ -80,13 +80,19 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
-              <Image src="/logo.svg" alt="Zaxby's" width={200} height={49} className="brightness-0 invert" />
+              <Image
+                src="/logo.svg"
+                alt="Zaxby's"
+                width={200}
+                height={49}
+                className="brightness-0 invert"
+              />
             </Link>
             <p className="text-gray-400 mb-6 max-w-sm">
-              Empowering Zaxby's franchisees with comprehensive management tools to optimize operations, 
-              reduce costs, and maximize success.
+              Empowering Zaxby's franchisees with comprehensive management tools
+              to optimize operations, reduce costs, and maximize success.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-2 text-sm text-gray-400">
               <div className="flex items-center">
@@ -249,7 +255,7 @@ export function Footer() {
             <div className="text-sm text-gray-400">
               © 2024 Zaxby's Franchising LLC. All rights reserved.
             </div>
-            
+
             <div className="flex items-center space-x-4 mt-4 md:mt-0">
               <button
                 onClick={scrollToTop}

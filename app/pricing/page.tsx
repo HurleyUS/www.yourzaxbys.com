@@ -1,12 +1,19 @@
 import { Metadata } from "next";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check, X, Star, Zap, Crown, Building } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Pricing - Zaxby's Franchise Management Platform",
-  description: "Choose the perfect plan for your Zaxby's franchise. Transparent pricing with no hidden fees. Start your free trial today.",
+  description:
+    "Choose the perfect plan for your Zaxby's franchise. Transparent pricing with no hidden fees. Start your free trial today.",
 };
 
 const plans = [
@@ -24,15 +31,15 @@ const plans = [
       "Email support",
       "Mobile app access",
       "Basic reporting",
-      "1 location included"
+      "1 location included",
     ],
     limitations: [
       "Limited integrations",
       "Basic training management",
-      "Standard maintenance tracking"
+      "Standard maintenance tracking",
     ],
     cta: "Start Free Trial",
-    ctaVariant: "outline" as const
+    ctaVariant: "outline" as const,
   },
   {
     name: "Professional",
@@ -53,11 +60,11 @@ const plans = [
       "Up to 5 locations",
       "API access",
       "Custom reporting",
-      "Phone support"
+      "Phone support",
     ],
     limitations: [],
     cta: "Start Free Trial",
-    ctaVariant: "default" as const
+    ctaVariant: "default" as const,
   },
   {
     name: "Enterprise",
@@ -78,12 +85,12 @@ const plans = [
       "SLA guarantees",
       "Custom development",
       "Multi-brand support",
-      "Executive dashboards"
+      "Executive dashboards",
     ],
     limitations: [],
     cta: "Contact Sales",
-    ctaVariant: "outline" as const
-  }
+    ctaVariant: "outline" as const,
+  },
 ];
 
 const addOns = [
@@ -92,56 +99,81 @@ const addOns = [
     description: "Add more locations to your plan",
     price: "$25",
     period: "per location/month",
-    features: ["Full platform access", "Separate analytics", "Location-specific reporting"]
+    features: [
+      "Full platform access",
+      "Separate analytics",
+      "Location-specific reporting",
+    ],
   },
   {
     name: "Advanced Analytics",
     description: "AI-powered insights and predictions",
     price: "$50",
     period: "per month",
-    features: ["Predictive analytics", "Trend analysis", "Custom AI models", "Advanced forecasting"]
+    features: [
+      "Predictive analytics",
+      "Trend analysis",
+      "Custom AI models",
+      "Advanced forecasting",
+    ],
   },
   {
     name: "Custom Integrations",
     description: "Connect with your existing systems",
     price: "$200",
     period: "one-time setup",
-    features: ["POS integration", "Payroll system sync", "Inventory management", "Custom API development"]
+    features: [
+      "POS integration",
+      "Payroll system sync",
+      "Inventory management",
+      "Custom API development",
+    ],
   },
   {
     name: "Priority Support",
     description: "Faster response times and dedicated support",
     price: "$100",
     period: "per month",
-    features: ["1-hour response time", "Dedicated support agent", "Phone & chat support", "Priority feature requests"]
-  }
+    features: [
+      "1-hour response time",
+      "Dedicated support agent",
+      "Phone & chat support",
+      "Priority feature requests",
+    ],
+  },
 ];
 
 const faqs = [
   {
     question: "Is there a free trial?",
-    answer: "Yes! We offer a 30-day free trial with full access to all features. No credit card required to start."
+    answer:
+      "Yes! We offer a 30-day free trial with full access to all features. No credit card required to start.",
   },
   {
     question: "Can I change plans anytime?",
-    answer: "Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle."
+    answer:
+      "Absolutely. You can upgrade or downgrade your plan at any time. Changes take effect on your next billing cycle.",
   },
   {
     question: "What happens if I exceed my location limit?",
-    answer: "We'll notify you when you're approaching your limit. You can add additional locations for $25/month each or upgrade your plan."
+    answer:
+      "We'll notify you when you're approaching your limit. You can add additional locations for $25/month each or upgrade your plan.",
   },
   {
     question: "Do you offer discounts for annual billing?",
-    answer: "Yes! Save 20% when you pay annually. Contact our sales team for more information about annual pricing."
+    answer:
+      "Yes! Save 20% when you pay annually. Contact our sales team for more information about annual pricing.",
   },
   {
     question: "Is there a setup fee?",
-    answer: "No setup fees for Starter and Professional plans. Enterprise plans may include custom setup based on requirements."
+    answer:
+      "No setup fees for Starter and Professional plans. Enterprise plans may include custom setup based on requirements.",
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We accept all major credit cards, ACH transfers, and can accommodate enterprise payment terms for larger customers."
-  }
+    answer:
+      "We accept all major credit cards, ACH transfers, and can accommodate enterprise payment terms for larger customers.",
+  },
 ];
 
 export default function PricingPage() {
@@ -159,8 +191,9 @@ export default function PricingPage() {
               <span className="block text-red-600">Perfect Plan</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              No hidden fees, no surprises. Start with a 30-day free trial and scale as you grow. 
-              All plans include our core features with transparent pricing.
+              No hidden fees, no surprises. Start with a 30-day free trial and
+              scale as you grow. All plans include our core features with
+              transparent pricing.
             </p>
           </div>
         </div>
@@ -171,9 +204,9 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`relative ${plan.popular ? 'ring-2 ring-red-500 shadow-xl scale-105' : 'hover:shadow-lg'} transition-all`}
+              <Card
+                key={index}
+                className={`relative ${plan.popular ? "ring-2 ring-red-500 shadow-xl scale-105" : "hover:shadow-lg"} transition-all`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -182,29 +215,37 @@ export default function PricingPage() {
                     </Badge>
                   </div>
                 )}
-                
+
                 <CardHeader className="text-center pb-8">
                   <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <plan.icon className="h-8 w-8 text-red-600" />
                   </div>
-                  <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                  <CardDescription className="text-gray-600">{plan.description}</CardDescription>
+                  <CardTitle className="text-2xl font-bold">
+                    {plan.name}
+                  </CardTitle>
+                  <CardDescription className="text-gray-600">
+                    {plan.description}
+                  </CardDescription>
                   <div className="mt-4">
-                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                    <span className="text-4xl font-bold text-gray-900">
+                      {plan.price}
+                    </span>
                     <span className="text-gray-600 ml-2">{plan.period}</span>
                   </div>
                 </CardHeader>
-                
+
                 <CardContent className="space-y-6">
-                  <Button 
-                    className={`w-full ${plan.ctaVariant === 'default' ? 'bg-red-600 hover:bg-red-700' : ''}`}
+                  <Button
+                    className={`w-full ${plan.ctaVariant === "default" ? "bg-red-600 hover:bg-red-700" : ""}`}
                     variant={plan.ctaVariant}
                   >
                     {plan.cta}
                   </Button>
-                  
+
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">What's included:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3">
+                      What's included:
+                    </h4>
                     <ul className="space-y-2">
                       {plan.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
@@ -214,13 +255,18 @@ export default function PricingPage() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   {plan.limitations.length > 0 && (
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">Limitations:</h4>
+                      <h4 className="font-semibold text-gray-900 mb-3">
+                        Limitations:
+                      </h4>
                       <ul className="space-y-2">
                         {plan.limitations.map((limitation, limitationIndex) => (
-                          <li key={limitationIndex} className="flex items-start">
+                          <li
+                            key={limitationIndex}
+                            className="flex items-start"
+                          >
                             <X className="h-5 w-5 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
                             <span className="text-gray-500">{limitation}</span>
                           </li>
@@ -243,10 +289,11 @@ export default function PricingPage() {
               Add-ons & Extensions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Enhance your plan with additional features and services tailored to your needs.
+              Enhance your plan with additional features and services tailored
+              to your needs.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {addOns.map((addon, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -254,7 +301,9 @@ export default function PricingPage() {
                   <CardTitle className="text-lg">{addon.name}</CardTitle>
                   <CardDescription>{addon.description}</CardDescription>
                   <div className="mt-2">
-                    <span className="text-2xl font-bold text-gray-900">{addon.price}</span>
+                    <span className="text-2xl font-bold text-gray-900">
+                      {addon.price}
+                    </span>
                     <span className="text-gray-600 ml-1">{addon.period}</span>
                   </div>
                 </CardHeader>
@@ -282,14 +331,19 @@ export default function PricingPage() {
             Need a Custom Solution?
           </h2>
           <p className="text-xl max-w-3xl mx-auto mb-8 opacity-90">
-            Our Enterprise plan offers unlimited customization, dedicated support, and tailored 
-            solutions for large franchise groups and above-store teams.
+            Our Enterprise plan offers unlimited customization, dedicated
+            support, and tailored solutions for large franchise groups and
+            above-store teams.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
               Contact Sales Team
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-white text-red-600 hover:bg-gray-100">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-6 bg-white text-red-600 hover:bg-gray-100"
+            >
               Schedule Demo
             </Button>
           </div>
@@ -307,7 +361,7 @@ export default function PricingPage() {
               Everything you need to know about our pricing and plans.
             </p>
           </div>
-          
+
           <div className="space-y-8">
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-gray-200 pb-6">
@@ -328,11 +382,15 @@ export default function PricingPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Join hundreds of successful Zaxby's franchisees who are already using our platform 
-            to optimize their operations and grow their business.
+            Join hundreds of successful Zaxby's franchisees who are already
+            using our platform to optimize their operations and grow their
+            business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6">
+            <Button
+              size="lg"
+              className="bg-red-600 hover:bg-red-700 text-white text-lg px-8 py-6"
+            >
               Start Your Free Trial
             </Button>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6">

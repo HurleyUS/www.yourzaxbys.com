@@ -14,10 +14,7 @@ function generateEid(): string {
 export const list = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db
-      .query("employees")
-      .order("desc")
-      .collect();
+    return await ctx.db.query("employees").order("desc").collect();
   },
 });
 
@@ -28,29 +25,33 @@ export const create = mutation({
     last: v.string(),
     email: v.string(),
     phone: v.optional(v.string()),
-    role: v.optional(v.union(
-      v.literal("franchise_owner"),
-      v.literal("above_store_team"),
-      v.literal("store_manager"),
-      v.literal("assistant_manager"),
-      v.literal("shift_leader"),
-      v.literal("team_member")
-    )),
-    position: v.optional(v.union(
-      v.literal("cashier"),
-      v.literal("cook"),
-      v.literal("trainer"),
-      v.literal("shift leader"),
-      v.literal("gm"),
-      v.literal("above store")
-    )),
+    role: v.optional(
+      v.union(
+        v.literal("franchise_owner"),
+        v.literal("above_store_team"),
+        v.literal("store_manager"),
+        v.literal("assistant_manager"),
+        v.literal("shift_leader"),
+        v.literal("team_member"),
+      ),
+    ),
+    position: v.optional(
+      v.union(
+        v.literal("cashier"),
+        v.literal("cook"),
+        v.literal("trainer"),
+        v.literal("shift leader"),
+        v.literal("gm"),
+        v.literal("above store"),
+      ),
+    ),
     storeId: v.optional(v.string()),
     hireDate: v.optional(v.string()),
     status: v.union(
       v.literal("active"),
       v.literal("inactive"),
       v.literal("pending"),
-      v.literal("terminated")
+      v.literal("terminated"),
     ),
   },
   handler: async (ctx, args) => {
@@ -84,7 +85,7 @@ export const updateStatus = mutation({
       v.literal("active"),
       v.literal("inactive"),
       v.literal("pending"),
-      v.literal("terminated")
+      v.literal("terminated"),
     ),
   },
   handler: async (ctx, args) => {
@@ -102,22 +103,26 @@ export const createEmployee = mutation({
     last: v.string(),
     email: v.string(),
     phone: v.optional(v.string()),
-    role: v.optional(v.union(
-      v.literal("franchise_owner"),
-      v.literal("above_store_team"),
-      v.literal("store_manager"),
-      v.literal("assistant_manager"),
-      v.literal("shift_leader"),
-      v.literal("team_member")
-    )),
-    position: v.optional(v.union(
-      v.literal("cashier"),
-      v.literal("cook"),
-      v.literal("trainer"),
-      v.literal("shift leader"),
-      v.literal("gm"),
-      v.literal("above store")
-    )),
+    role: v.optional(
+      v.union(
+        v.literal("franchise_owner"),
+        v.literal("above_store_team"),
+        v.literal("store_manager"),
+        v.literal("assistant_manager"),
+        v.literal("shift_leader"),
+        v.literal("team_member"),
+      ),
+    ),
+    position: v.optional(
+      v.union(
+        v.literal("cashier"),
+        v.literal("cook"),
+        v.literal("trainer"),
+        v.literal("shift leader"),
+        v.literal("gm"),
+        v.literal("above store"),
+      ),
+    ),
     storeId: v.optional(v.string()),
     hireDate: v.optional(v.string()),
     ssnLast4: v.optional(v.string()),
@@ -211,8 +216,8 @@ export const listEmployees = query({
         v.literal("active"),
         v.literal("inactive"),
         v.literal("pending"),
-        v.literal("terminated")
-      )
+        v.literal("terminated"),
+      ),
     ),
     storeId: v.optional(v.string()),
     limit: v.optional(v.number()),
@@ -256,17 +261,19 @@ export const updateEmployee = mutation({
         v.literal("store_manager"),
         v.literal("assistant_manager"),
         v.literal("shift_leader"),
-        v.literal("team_member")
-      )
+        v.literal("team_member"),
+      ),
     ),
-    position: v.optional(v.union(
-      v.literal("cashier"),
-      v.literal("cook"),
-      v.literal("trainer"),
-      v.literal("shift leader"),
-      v.literal("gm"),
-      v.literal("above store")
-    )),
+    position: v.optional(
+      v.union(
+        v.literal("cashier"),
+        v.literal("cook"),
+        v.literal("trainer"),
+        v.literal("shift leader"),
+        v.literal("gm"),
+        v.literal("above store"),
+      ),
+    ),
     storeId: v.optional(v.string()),
     hireDate: v.optional(v.string()),
     status: v.optional(
@@ -274,8 +281,8 @@ export const updateEmployee = mutation({
         v.literal("active"),
         v.literal("inactive"),
         v.literal("pending"),
-        v.literal("terminated")
-      )
+        v.literal("terminated"),
+      ),
     ),
     clerkUserId: v.optional(v.string()),
     hourlyRate: v.optional(v.number()),
@@ -299,7 +306,7 @@ export const updateEmployee = mutation({
     }
 
     const filteredUpdates = Object.fromEntries(
-      Object.entries(updates).filter(([_, v]) => v !== undefined)
+      Object.entries(updates).filter(([_, v]) => v !== undefined),
     );
 
     return await ctx.db.patch(id, {

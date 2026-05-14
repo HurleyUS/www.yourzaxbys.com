@@ -61,11 +61,16 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Mobile sidebar */}
-      <div className={cn(
-        "fixed inset-0 z-50 lg:hidden",
-        sidebarOpen ? "block" : "hidden"
-      )}>
-        <div className="fixed inset-0 bg-gray-900/80" onClick={() => setSidebarOpen(false)} />
+      <div
+        className={cn(
+          "fixed inset-0 z-50 lg:hidden",
+          sidebarOpen ? "block" : "hidden",
+        )}
+      >
+        <div
+          className="fixed inset-0 bg-gray-900/80"
+          onClick={() => setSidebarOpen(false)}
+        />
         <div className="fixed inset-y-0 left-0 w-64 bg-white shadow-xl">
           <div className="flex h-16 items-center justify-between px-4 border-b">
             <Image src="/logo.svg" alt="Zaxby's" width={120} height={29} />
@@ -82,7 +87,7 @@ export default function DashboardLayout({
                   "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                   pathname === item.href
                     ? "bg-red-50 text-red-600"
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700 hover:bg-gray-100",
                 )}
                 onClick={() => setSidebarOpen(false)}
               >
@@ -111,7 +116,7 @@ export default function DashboardLayout({
                   "flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                   pathname === item.href
                     ? "bg-red-50 text-red-600"
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700 hover:bg-gray-100",
                 )}
               >
                 <item.icon className="mr-3 h-5 w-5" />
@@ -123,7 +128,9 @@ export default function DashboardLayout({
             <div className="flex items-center">
               <UserButton afterSignOutUrl="/" />
               <div className="ml-3">
-                <p className="text-sm font-medium text-gray-700">Franchise Portal</p>
+                <p className="text-sm font-medium text-gray-700">
+                  Franchise Portal
+                </p>
                 <p className="text-xs text-gray-500">v1.0.0</p>
               </div>
             </div>
@@ -146,7 +153,8 @@ export default function DashboardLayout({
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="flex flex-1 items-center">
               <h1 className="text-lg font-semibold text-gray-900">
-                {navigation.find((item) => item.href === pathname)?.name || "Dashboard"}
+                {navigation.find((item) => item.href === pathname)?.name ||
+                  "Dashboard"}
               </h1>
             </div>
             <div className="flex items-center gap-x-4 lg:gap-x-6">
@@ -163,9 +171,7 @@ export default function DashboardLayout({
         </div>
 
         {/* Page content */}
-        <main className="p-4 sm:p-6 lg:p-8">
-          {children}
-        </main>
+        <main className="p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
     </div>
   );

@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import { useUser } from "@clerk/nextjs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -59,7 +65,9 @@ export default function SettingsPage() {
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-        <p className="text-gray-500">Manage your account and application preferences</p>
+        <p className="text-gray-500">
+          Manage your account and application preferences
+        </p>
       </div>
 
       <Tabs defaultValue="profile" className="space-y-6">
@@ -72,7 +80,10 @@ export default function SettingsPage() {
             <Building className="h-4 w-4" />
             <span className="hidden sm:inline">Organization</span>
           </TabsTrigger>
-          <TabsTrigger value="notifications" className="flex items-center gap-2">
+          <TabsTrigger
+            value="notifications"
+            className="flex items-center gap-2"
+          >
             <Bell className="h-4 w-4" />
             <span className="hidden sm:inline">Notifications</span>
           </TabsTrigger>
@@ -91,21 +102,28 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Profile Information</CardTitle>
-              <CardDescription>Update your personal details and contact information</CardDescription>
+              <CardDescription>
+                Update your personal details and contact information
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center">
                   <span className="text-2xl font-bold text-red-600">
-                    {user?.firstName?.[0]}{user?.lastName?.[0]}
+                    {user?.firstName?.[0]}
+                    {user?.lastName?.[0]}
                   </span>
                 </div>
                 <div>
-                  <Button variant="outline" size="sm">Change Photo</Button>
-                  <p className="text-xs text-gray-500 mt-1">JPG, PNG or GIF. Max 2MB</p>
+                  <Button variant="outline" size="sm">
+                    Change Photo
+                  </Button>
+                  <p className="text-xs text-gray-500 mt-1">
+                    JPG, PNG or GIF. Max 2MB
+                  </p>
                 </div>
               </div>
-              
+
               <Separator />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -121,7 +139,11 @@ export default function SettingsPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email Address</Label>
-                <Input id="email" type="email" defaultValue={user?.emailAddresses?.[0]?.emailAddress || ""} />
+                <Input
+                  id="email"
+                  type="email"
+                  defaultValue={user?.emailAddresses?.[0]?.emailAddress || ""}
+                />
               </div>
 
               <div className="space-y-2">
@@ -134,7 +156,10 @@ export default function SettingsPage() {
                 <Input id="title" placeholder="Franchise Owner" />
               </div>
 
-              <Button onClick={handleSave} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={handleSave}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 <Save className="h-4 w-4 mr-2" />
                 Save Changes
               </Button>
@@ -147,7 +172,9 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Organization Details</CardTitle>
-              <CardDescription>Manage your franchise organization information</CardDescription>
+              <CardDescription>
+                Manage your franchise organization information
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -186,7 +213,10 @@ export default function SettingsPage() {
                 </div>
               </div>
 
-              <Button onClick={handleSave} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={handleSave}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 <Save className="h-4 w-4 mr-2" />
                 Save Changes
               </Button>
@@ -196,7 +226,9 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Team Members</CardTitle>
-              <CardDescription>Manage who has access to your organization</CardDescription>
+              <CardDescription>
+                Manage who has access to your organization
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -224,7 +256,7 @@ export default function SettingsPage() {
                     </Select>
                   </div>
                 </div>
-                
+
                 <Button variant="outline" className="w-full">
                   <Users className="h-4 w-4 mr-2" />
                   Invite Team Member
@@ -239,7 +271,9 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Notification Preferences</CardTitle>
-              <CardDescription>Choose how you want to receive alerts and updates</CardDescription>
+              <CardDescription>
+                Choose how you want to receive alerts and updates
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
@@ -247,16 +281,21 @@ export default function SettingsPage() {
                   <Mail className="h-4 w-4" />
                   Email Notifications
                 </h3>
-                
+
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Email Alerts</p>
-                    <p className="text-sm text-gray-500">Receive important alerts via email</p>
+                    <p className="text-sm text-gray-500">
+                      Receive important alerts via email
+                    </p>
                   </div>
                   <Switch
                     checked={notifications.emailAlerts}
-                    onCheckedChange={(checked) => 
-                      setNotifications({ ...notifications, emailAlerts: checked })
+                    onCheckedChange={(checked) =>
+                      setNotifications({
+                        ...notifications,
+                        emailAlerts: checked,
+                      })
                     }
                   />
                 </div>
@@ -264,12 +303,17 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Weekly Reports</p>
-                    <p className="text-sm text-gray-500">Receive weekly performance summaries</p>
+                    <p className="text-sm text-gray-500">
+                      Receive weekly performance summaries
+                    </p>
                   </div>
                   <Switch
                     checked={notifications.weeklyReports}
-                    onCheckedChange={(checked) => 
-                      setNotifications({ ...notifications, weeklyReports: checked })
+                    onCheckedChange={(checked) =>
+                      setNotifications({
+                        ...notifications,
+                        weeklyReports: checked,
+                      })
                     }
                   />
                 </div>
@@ -282,15 +326,17 @@ export default function SettingsPage() {
                   <Smartphone className="h-4 w-4" />
                   SMS Notifications
                 </h3>
-                
+
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">SMS Alerts</p>
-                    <p className="text-sm text-gray-500">Receive urgent alerts via text message</p>
+                    <p className="text-sm text-gray-500">
+                      Receive urgent alerts via text message
+                    </p>
                   </div>
                   <Switch
                     checked={notifications.smsAlerts}
-                    onCheckedChange={(checked) => 
+                    onCheckedChange={(checked) =>
                       setNotifications({ ...notifications, smsAlerts: checked })
                     }
                   />
@@ -308,12 +354,17 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Audit Reminders</p>
-                    <p className="text-sm text-gray-500">Upcoming audit notifications</p>
+                    <p className="text-sm text-gray-500">
+                      Upcoming audit notifications
+                    </p>
                   </div>
                   <Switch
                     checked={notifications.auditReminders}
-                    onCheckedChange={(checked) => 
-                      setNotifications({ ...notifications, auditReminders: checked })
+                    onCheckedChange={(checked) =>
+                      setNotifications({
+                        ...notifications,
+                        auditReminders: checked,
+                      })
                     }
                   />
                 </div>
@@ -321,12 +372,17 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Schedule Published</p>
-                    <p className="text-sm text-gray-500">When new schedules are published</p>
+                    <p className="text-sm text-gray-500">
+                      When new schedules are published
+                    </p>
                   </div>
                   <Switch
                     checked={notifications.schedulePublished}
-                    onCheckedChange={(checked) => 
-                      setNotifications({ ...notifications, schedulePublished: checked })
+                    onCheckedChange={(checked) =>
+                      setNotifications({
+                        ...notifications,
+                        schedulePublished: checked,
+                      })
                     }
                   />
                 </div>
@@ -334,18 +390,26 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium">Labor Threshold Alerts</p>
-                    <p className="text-sm text-gray-500">When labor cost exceeds target</p>
+                    <p className="text-sm text-gray-500">
+                      When labor cost exceeds target
+                    </p>
                   </div>
                   <Switch
                     checked={notifications.laborThreshold}
-                    onCheckedChange={(checked) => 
-                      setNotifications({ ...notifications, laborThreshold: checked })
+                    onCheckedChange={(checked) =>
+                      setNotifications({
+                        ...notifications,
+                        laborThreshold: checked,
+                      })
                     }
                   />
                 </div>
               </div>
 
-              <Button onClick={handleSave} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={handleSave}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 <Save className="h-4 w-4 mr-2" />
                 Save Preferences
               </Button>
@@ -358,7 +422,9 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Application Preferences</CardTitle>
-              <CardDescription>Customize your dashboard experience</CardDescription>
+              <CardDescription>
+                Customize your dashboard experience
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -366,16 +432,26 @@ export default function SettingsPage() {
                   <Label>Timezone</Label>
                   <Select
                     value={preferences.timezone}
-                    onValueChange={(value) => setPreferences({ ...preferences, timezone: value })}
+                    onValueChange={(value) =>
+                      setPreferences({ ...preferences, timezone: value })
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="America/New_York">Eastern Time</SelectItem>
-                      <SelectItem value="America/Chicago">Central Time</SelectItem>
-                      <SelectItem value="America/Denver">Mountain Time</SelectItem>
-                      <SelectItem value="America/Los_Angeles">Pacific Time</SelectItem>
+                      <SelectItem value="America/New_York">
+                        Eastern Time
+                      </SelectItem>
+                      <SelectItem value="America/Chicago">
+                        Central Time
+                      </SelectItem>
+                      <SelectItem value="America/Denver">
+                        Mountain Time
+                      </SelectItem>
+                      <SelectItem value="America/Los_Angeles">
+                        Pacific Time
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -384,7 +460,9 @@ export default function SettingsPage() {
                   <Label>Date Format</Label>
                   <Select
                     value={preferences.dateFormat}
-                    onValueChange={(value) => setPreferences({ ...preferences, dateFormat: value })}
+                    onValueChange={(value) =>
+                      setPreferences({ ...preferences, dateFormat: value })
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue />
@@ -404,10 +482,17 @@ export default function SettingsPage() {
                   <Input
                     type="number"
                     value={preferences.laborThreshold}
-                    onChange={(e) => setPreferences({ ...preferences, laborThreshold: e.target.value })}
+                    onChange={(e) =>
+                      setPreferences({
+                        ...preferences,
+                        laborThreshold: e.target.value,
+                      })
+                    }
                     className="w-24"
                   />
-                  <span className="text-sm text-gray-500">Alert when labor cost exceeds this percentage</span>
+                  <span className="text-sm text-gray-500">
+                    Alert when labor cost exceeds this percentage
+                  </span>
                 </div>
               </div>
 
@@ -415,7 +500,9 @@ export default function SettingsPage() {
                 <Label>Default Schedule View</Label>
                 <Select
                   value={preferences.defaultView}
-                  onValueChange={(value) => setPreferences({ ...preferences, defaultView: value })}
+                  onValueChange={(value) =>
+                    setPreferences({ ...preferences, defaultView: value })
+                  }
                 >
                   <SelectTrigger className="w-[200px]">
                     <SelectValue />
@@ -428,7 +515,10 @@ export default function SettingsPage() {
                 </Select>
               </div>
 
-              <Button onClick={handleSave} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={handleSave}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 <Save className="h-4 w-4 mr-2" />
                 Save Preferences
               </Button>
@@ -441,7 +531,9 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Security Settings</CardTitle>
-              <CardDescription>Manage your account security and authentication</CardDescription>
+              <CardDescription>
+                Manage your account security and authentication
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="p-4 border rounded-lg">
@@ -450,7 +542,9 @@ export default function SettingsPage() {
                     <Key className="h-5 w-5 text-gray-500" />
                     <div>
                       <p className="font-medium">Password</p>
-                      <p className="text-sm text-gray-500">Last changed 30 days ago</p>
+                      <p className="text-sm text-gray-500">
+                        Last changed 30 days ago
+                      </p>
                     </div>
                   </div>
                   <Button variant="outline">Change Password</Button>
@@ -463,7 +557,9 @@ export default function SettingsPage() {
                     <Shield className="h-5 w-5 text-gray-500" />
                     <div>
                       <p className="font-medium">Two-Factor Authentication</p>
-                      <p className="text-sm text-gray-500">Add an extra layer of security</p>
+                      <p className="text-sm text-gray-500">
+                        Add an extra layer of security
+                      </p>
                     </div>
                   </div>
                   <Button variant="outline">Enable 2FA</Button>
@@ -476,7 +572,9 @@ export default function SettingsPage() {
                     <Clock className="h-5 w-5 text-gray-500" />
                     <div>
                       <p className="font-medium">Session Timeout</p>
-                      <p className="text-sm text-gray-500">Automatically log out after inactivity</p>
+                      <p className="text-sm text-gray-500">
+                        Automatically log out after inactivity
+                      </p>
                     </div>
                   </div>
                   <Select defaultValue="30">
@@ -498,14 +596,18 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle className="text-red-600">Danger Zone</CardTitle>
-              <CardDescription>Irreversible actions for your account</CardDescription>
+              <CardDescription>
+                Irreversible actions for your account
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="p-4 border border-red-200 rounded-lg bg-red-50">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-medium text-red-800">Delete Account</p>
-                    <p className="text-sm text-red-600">Permanently delete your account and all data</p>
+                    <p className="text-sm text-red-600">
+                      Permanently delete your account and all data
+                    </p>
                   </div>
                   <Button variant="destructive">Delete Account</Button>
                 </div>

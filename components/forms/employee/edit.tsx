@@ -65,7 +65,9 @@ export default function EmployeeEditForm({ eid }: { eid: string }) {
       form.reset({
         ...(employee as unknown as z.infer<typeof EmployeeObject>),
         dob: formatDateForInput(employee.dob) as unknown as string,
-        hireDate: formatDateForInput(employee.hireDate || employee.hired) as unknown as string,
+        hireDate: formatDateForInput(
+          employee.hireDate || employee.hired,
+        ) as unknown as string,
       });
     }
   }, [employee, form]);
@@ -226,7 +228,11 @@ export default function EmployeeEditForm({ eid }: { eid: string }) {
             <FormItem>
               <FormLabel>SSN</FormLabel>
               <FormControl>
-                <Input value={`***-**-${employee.ssnLast4}`} disabled readOnly />
+                <Input
+                  value={`***-**-${employee.ssnLast4}`}
+                  disabled
+                  readOnly
+                />
               </FormControl>
             </FormItem>
           )}

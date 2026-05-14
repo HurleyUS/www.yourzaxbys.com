@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -172,7 +178,11 @@ export default function AuditsPage() {
       case "passed":
         return <Badge className="bg-green-100 text-green-800">Passed</Badge>;
       case "needs_improvement":
-        return <Badge className="bg-yellow-100 text-yellow-800">Needs Improvement</Badge>;
+        return (
+          <Badge className="bg-yellow-100 text-yellow-800">
+            Needs Improvement
+          </Badge>
+        );
       case "failed":
         return <Badge className="bg-red-100 text-red-800">Failed</Badge>;
       default:
@@ -183,13 +193,35 @@ export default function AuditsPage() {
   const getTypeBadge = (type: string) => {
     switch (type) {
       case "steritech":
-        return <Badge variant="outline" className="border-blue-300 text-blue-700">Steritech</Badge>;
+        return (
+          <Badge variant="outline" className="border-blue-300 text-blue-700">
+            Steritech
+          </Badge>
+        );
       case "health_department":
-        return <Badge variant="outline" className="border-green-300 text-green-700">Health Dept</Badge>;
+        return (
+          <Badge variant="outline" className="border-green-300 text-green-700">
+            Health Dept
+          </Badge>
+        );
       case "internal":
-        return <Badge variant="outline" className="border-purple-300 text-purple-700">Internal</Badge>;
+        return (
+          <Badge
+            variant="outline"
+            className="border-purple-300 text-purple-700"
+          >
+            Internal
+          </Badge>
+        );
       case "rer":
-        return <Badge variant="outline" className="border-orange-300 text-orange-700">RER</Badge>;
+        return (
+          <Badge
+            variant="outline"
+            className="border-orange-300 text-orange-700"
+          >
+            RER
+          </Badge>
+        );
       default:
         return <Badge variant="outline">{type}</Badge>;
     }
@@ -228,8 +260,12 @@ export default function AuditsPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Audits & Corrective Action Plans</h1>
-          <p className="text-gray-500">Track audit scores and manage corrective actions</p>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Audits & Corrective Action Plans
+          </h1>
+          <p className="text-gray-500">
+            Track audit scores and manage corrective actions
+          </p>
         </div>
         <Button className="bg-red-600 hover:bg-red-700">
           <Plus className="h-4 w-4 mr-2" />
@@ -243,7 +279,9 @@ export default function AuditsPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Avg Steritech</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Avg Steritech
+                </p>
                 <p className="text-2xl font-bold text-green-600">94</p>
               </div>
               <TrendingUp className="h-8 w-8 text-green-500" />
@@ -255,7 +293,9 @@ export default function AuditsPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Avg Health Dept</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Avg Health Dept
+                </p>
                 <p className="text-2xl font-bold">91</p>
               </div>
               <ClipboardCheck className="h-8 w-8 text-blue-500" />
@@ -284,7 +324,9 @@ export default function AuditsPage() {
               </div>
               <Calendar className="h-8 w-8 text-purple-500" />
             </div>
-            <p className="text-xs text-gray-500 mt-2">Store #1235 - Steritech</p>
+            <p className="text-xs text-gray-500 mt-2">
+              Store #1235 - Steritech
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -321,7 +363,9 @@ export default function AuditsPage() {
                   <SelectContent>
                     <SelectItem value="all">All Types</SelectItem>
                     <SelectItem value="steritech">Steritech</SelectItem>
-                    <SelectItem value="health_department">Health Department</SelectItem>
+                    <SelectItem value="health_department">
+                      Health Department
+                    </SelectItem>
                     <SelectItem value="internal">Internal</SelectItem>
                     <SelectItem value="rer">RER</SelectItem>
                   </SelectContent>
@@ -356,26 +400,38 @@ export default function AuditsPage() {
                       </TableCell>
                       <TableCell>{getTypeBadge(audit.type)}</TableCell>
                       <TableCell>
-                        <span className={`font-bold ${
-                          audit.score >= 90 ? "text-green-600" :
-                          audit.score >= 80 ? "text-yellow-600" :
-                          "text-red-600"
-                        }`}>
+                        <span
+                          className={`font-bold ${
+                            audit.score >= 90
+                              ? "text-green-600"
+                              : audit.score >= 80
+                                ? "text-yellow-600"
+                                : "text-red-600"
+                          }`}
+                        >
                           {audit.score}/{audit.maxScore}
                         </span>
                       </TableCell>
-                      <TableCell>{new Date(audit.date).toLocaleDateString()}</TableCell>
+                      <TableCell>
+                        {new Date(audit.date).toLocaleDateString()}
+                      </TableCell>
                       <TableCell>{audit.inspector}</TableCell>
                       <TableCell>
                         <div className="flex gap-1">
                           {audit.criticalFindings > 0 && (
-                            <Badge className="bg-red-100 text-red-800 text-xs">{audit.criticalFindings}C</Badge>
+                            <Badge className="bg-red-100 text-red-800 text-xs">
+                              {audit.criticalFindings}C
+                            </Badge>
                           )}
                           {audit.majorFindings > 0 && (
-                            <Badge className="bg-orange-100 text-orange-800 text-xs">{audit.majorFindings}M</Badge>
+                            <Badge className="bg-orange-100 text-orange-800 text-xs">
+                              {audit.majorFindings}M
+                            </Badge>
                           )}
                           {audit.minorFindings > 0 && (
-                            <Badge className="bg-yellow-100 text-yellow-800 text-xs">{audit.minorFindings}m</Badge>
+                            <Badge className="bg-yellow-100 text-yellow-800 text-xs">
+                              {audit.minorFindings}m
+                            </Badge>
                           )}
                         </div>
                       </TableCell>
@@ -398,7 +454,9 @@ export default function AuditsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Open Corrective Action Plans</CardTitle>
-              <CardDescription>Track and manage required corrections from audits</CardDescription>
+              <CardDescription>
+                Track and manage required corrections from audits
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <Table>
@@ -426,7 +484,9 @@ export default function AuditsPage() {
                         <p className="truncate">{cap.finding}</p>
                       </TableCell>
                       <TableCell>{getSeverityBadge(cap.severity)}</TableCell>
-                      <TableCell>{new Date(cap.dueDate).toLocaleDateString()}</TableCell>
+                      <TableCell>
+                        {new Date(cap.dueDate).toLocaleDateString()}
+                      </TableCell>
                       <TableCell>{cap.assignedTo}</TableCell>
                       <TableCell>{getCapStatusBadge(cap.status)}</TableCell>
                       <TableCell className="text-right">
@@ -448,7 +508,9 @@ export default function AuditsPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Audit Score Trends</CardTitle>
-                <CardDescription>6-month rolling average by audit type</CardDescription>
+                <CardDescription>
+                  6-month rolling average by audit type
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="h-[300px]">
@@ -458,9 +520,27 @@ export default function AuditsPage() {
                       <XAxis dataKey="month" />
                       <YAxis domain={[70, 100]} />
                       <Tooltip />
-                      <Line type="monotone" dataKey="steritech" stroke="#3b82f6" name="Steritech" strokeWidth={2} />
-                      <Line type="monotone" dataKey="health" stroke="#22c55e" name="Health Dept" strokeWidth={2} />
-                      <Line type="monotone" dataKey="internal" stroke="#8b5cf6" name="Internal" strokeWidth={2} />
+                      <Line
+                        type="monotone"
+                        dataKey="steritech"
+                        stroke="#3b82f6"
+                        name="Steritech"
+                        strokeWidth={2}
+                      />
+                      <Line
+                        type="monotone"
+                        dataKey="health"
+                        stroke="#22c55e"
+                        name="Health Dept"
+                        strokeWidth={2}
+                      />
+                      <Line
+                        type="monotone"
+                        dataKey="internal"
+                        stroke="#8b5cf6"
+                        name="Internal"
+                        strokeWidth={2}
+                      />
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
@@ -470,7 +550,9 @@ export default function AuditsPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Score by Store</CardTitle>
-                <CardDescription>Latest audit scores comparison</CardDescription>
+                <CardDescription>
+                  Latest audit scores comparison
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="h-[300px]">

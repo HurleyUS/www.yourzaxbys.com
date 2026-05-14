@@ -3,7 +3,13 @@
 import { useUser } from "@clerk/nextjs";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -66,7 +72,8 @@ export default function DashboardPage() {
   const stores = useQuery(api.stores.list);
 
   const employeeCount = employees?.length || 0;
-  const activeEmployees = employees?.filter((e) => e.status === "active").length || 0;
+  const activeEmployees =
+    employees?.filter((e) => e.status === "active").length || 0;
   const storeCount = stores?.length || 0;
 
   const stats = [
@@ -109,16 +116,54 @@ export default function DashboardPage() {
   ];
 
   const recentActivity = [
-    { type: "audit", title: "Steritech Audit Completed", store: "#1234", score: 94, time: "2 hours ago" },
-    { type: "employee", title: "New Employee Onboarded", name: "Sarah Johnson", time: "4 hours ago" },
-    { type: "alert", title: "Labor Threshold Alert", store: "#1235", message: "26.2% labor cost", time: "5 hours ago" },
-    { type: "schedule", title: "Schedule Published", store: "#1236", week: "Feb 10-16", time: "Yesterday" },
+    {
+      type: "audit",
+      title: "Steritech Audit Completed",
+      store: "#1234",
+      score: 94,
+      time: "2 hours ago",
+    },
+    {
+      type: "employee",
+      title: "New Employee Onboarded",
+      name: "Sarah Johnson",
+      time: "4 hours ago",
+    },
+    {
+      type: "alert",
+      title: "Labor Threshold Alert",
+      store: "#1235",
+      message: "26.2% labor cost",
+      time: "5 hours ago",
+    },
+    {
+      type: "schedule",
+      title: "Schedule Published",
+      store: "#1236",
+      week: "Feb 10-16",
+      time: "Yesterday",
+    },
   ];
 
   const upcomingTasks = [
-    { title: "Health Department Inspection", store: "#1234", date: "Feb 8", priority: "high" },
-    { title: "Quarterly Training Review", store: "All Stores", date: "Feb 15", priority: "medium" },
-    { title: "Equipment Maintenance", store: "#1237", date: "Feb 12", priority: "low" },
+    {
+      title: "Health Department Inspection",
+      store: "#1234",
+      date: "Feb 8",
+      priority: "high",
+    },
+    {
+      title: "Quarterly Training Review",
+      store: "All Stores",
+      date: "Feb 15",
+      priority: "medium",
+    },
+    {
+      title: "Equipment Maintenance",
+      store: "#1237",
+      date: "Feb 12",
+      priority: "low",
+    },
   ];
 
   return (
@@ -140,12 +185,20 @@ export default function DashboardPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-gray-500">{stat.name}</p>
+                  <p className="text-sm font-medium text-gray-500">
+                    {stat.name}
+                  </p>
                   <p className="text-2xl font-bold mt-1">{stat.value}</p>
                   <div className="flex items-center mt-1">
-                    {stat.trend === "up" && <TrendingUp className="h-4 w-4 text-green-500 mr-1" />}
-                    {stat.trend === "down" && <TrendingDown className="h-4 w-4 text-red-500 mr-1" />}
-                    <span className={`text-sm ${stat.trend === "up" ? "text-green-600" : stat.trend === "down" ? "text-red-600" : "text-gray-500"}`}>
+                    {stat.trend === "up" && (
+                      <TrendingUp className="h-4 w-4 text-green-500 mr-1" />
+                    )}
+                    {stat.trend === "down" && (
+                      <TrendingDown className="h-4 w-4 text-red-500 mr-1" />
+                    )}
+                    <span
+                      className={`text-sm ${stat.trend === "up" ? "text-green-600" : stat.trend === "down" ? "text-red-600" : "text-gray-500"}`}
+                    >
                       {stat.change}
                     </span>
                   </div>
@@ -165,7 +218,9 @@ export default function DashboardPage() {
         <Card>
           <CardHeader>
             <CardTitle>Weekly Sales & Labor</CardTitle>
-            <CardDescription>Sales performance vs labor costs this week</CardDescription>
+            <CardDescription>
+              Sales performance vs labor costs this week
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
@@ -174,7 +229,11 @@ export default function DashboardPage() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="day" />
                   <YAxis />
-                  <Tooltip formatter={(value) => value != null ? `$${Number(value).toLocaleString()}` : ''} />
+                  <Tooltip
+                    formatter={(value) =>
+                      value != null ? `$${Number(value).toLocaleString()}` : ""
+                    }
+                  />
                   <Area
                     type="monotone"
                     dataKey="sales"
@@ -208,9 +267,16 @@ export default function DashboardPage() {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={storePerformance} layout="vertical">
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`} />
+                  <XAxis
+                    type="number"
+                    tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+                  />
                   <YAxis type="category" dataKey="store" />
-                  <Tooltip formatter={(value) => value != null ? `$${Number(value).toLocaleString()}` : ''} />
+                  <Tooltip
+                    formatter={(value) =>
+                      value != null ? `$${Number(value).toLocaleString()}` : ""
+                    }
+                  />
                   <Bar dataKey="target" fill="#e5e7eb" name="Target" />
                   <Bar dataKey="sales" fill="#ef4444" name="Sales" />
                 </BarChart>
@@ -227,7 +293,9 @@ export default function DashboardPage() {
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
               <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>Latest updates across your franchise</CardDescription>
+              <CardDescription>
+                Latest updates across your franchise
+              </CardDescription>
             </div>
             <Button variant="ghost" size="sm">
               View All <ArrowRight className="ml-2 h-4 w-4" />
@@ -236,20 +304,38 @@ export default function DashboardPage() {
           <CardContent>
             <div className="space-y-4">
               {recentActivity.map((activity, index) => (
-                <div key={index} className="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                  <div className={`p-2 rounded-lg ${
-                    activity.type === "audit" ? "bg-green-100" :
-                    activity.type === "employee" ? "bg-blue-100" :
-                    activity.type === "alert" ? "bg-red-100" :
-                    "bg-purple-100"
-                  }`}>
-                    {activity.type === "audit" && <CheckCircle className="h-5 w-5 text-green-600" />}
-                    {activity.type === "employee" && <Users className="h-5 w-5 text-blue-600" />}
-                    {activity.type === "alert" && <AlertTriangle className="h-5 w-5 text-red-600" />}
-                    {activity.type === "schedule" && <Calendar className="h-5 w-5 text-purple-600" />}
+                <div
+                  key={index}
+                  className="flex items-start space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  <div
+                    className={`p-2 rounded-lg ${
+                      activity.type === "audit"
+                        ? "bg-green-100"
+                        : activity.type === "employee"
+                          ? "bg-blue-100"
+                          : activity.type === "alert"
+                            ? "bg-red-100"
+                            : "bg-purple-100"
+                    }`}
+                  >
+                    {activity.type === "audit" && (
+                      <CheckCircle className="h-5 w-5 text-green-600" />
+                    )}
+                    {activity.type === "employee" && (
+                      <Users className="h-5 w-5 text-blue-600" />
+                    )}
+                    {activity.type === "alert" && (
+                      <AlertTriangle className="h-5 w-5 text-red-600" />
+                    )}
+                    {activity.type === "schedule" && (
+                      <Calendar className="h-5 w-5 text-purple-600" />
+                    )}
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-gray-900">{activity.title}</p>
+                    <p className="font-medium text-gray-900">
+                      {activity.title}
+                    </p>
                     <p className="text-sm text-gray-500">
                       {activity.store && `Store ${activity.store}`}
                       {activity.name && activity.name}
@@ -274,12 +360,19 @@ export default function DashboardPage() {
           <CardContent>
             <div className="space-y-4">
               {upcomingTasks.map((task, index) => (
-                <div key={index} className="flex items-start space-x-3 p-3 rounded-lg border">
-                  <div className={`w-2 h-2 mt-2 rounded-full ${
-                    task.priority === "high" ? "bg-red-500" :
-                    task.priority === "medium" ? "bg-yellow-500" :
-                    "bg-green-500"
-                  }`} />
+                <div
+                  key={index}
+                  className="flex items-start space-x-3 p-3 rounded-lg border"
+                >
+                  <div
+                    className={`w-2 h-2 mt-2 rounded-full ${
+                      task.priority === "high"
+                        ? "bg-red-500"
+                        : task.priority === "medium"
+                          ? "bg-yellow-500"
+                          : "bg-green-500"
+                    }`}
+                  />
                   <div className="flex-1">
                     <p className="font-medium text-sm">{task.title}</p>
                     <p className="text-xs text-gray-500">{task.store}</p>
@@ -326,8 +419,13 @@ export default function DashboardPage() {
             <div className="grid grid-cols-2 gap-2 mt-4">
               {employeeDistribution.map((item) => (
                 <div key={item.name} className="flex items-center space-x-2">
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-                  <span className="text-xs text-gray-600">{item.name}: {item.value}</span>
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <span className="text-xs text-gray-600">
+                    {item.name}: {item.value}
+                  </span>
                 </div>
               ))}
             </div>

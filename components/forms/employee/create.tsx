@@ -88,7 +88,9 @@ export default function EmployeeForm() {
       // SECURITY: Never send full SSN to the server
       // Extract last 4 digits for storage, discard the rest
       const { ssn: _ssnDiscarded, ...safeData } = validated;
-      const ssnLast4 = _ssnDiscarded ? _ssnDiscarded.replace(/\D/g, "").slice(-4) : undefined;
+      const ssnLast4 = _ssnDiscarded
+        ? _ssnDiscarded.replace(/\D/g, "").slice(-4)
+        : undefined;
       const created = await createEmployee({ ...safeData, ssnLast4 });
     } catch (error) {
       errors.push({ sender: "create", message: "Failed to create employee" });
@@ -489,7 +491,7 @@ export default function EmployeeForm() {
                     tabIndex={15}
                     placeholder="Enter Rate"
                     required
-                    defaultValue={field.value ? field.value : 13.50}
+                    defaultValue={field.value ? field.value : 13.5}
                     className="grow-1 shrink-0"
                   />
                 </FormControl>

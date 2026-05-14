@@ -47,7 +47,7 @@ const capSchema = z.object({
         observation: z.string().min(1, "Observation is required"),
         solution: z.string().min(1, "Solution is required"),
         plan: z.string().min(1, "Plan is required"),
-      })
+      }),
     )
     .min(1, "At least one response is required"),
 });

@@ -14,7 +14,7 @@ export const createCap = mutation({
         observation: v.string(),
         solution: v.string(),
         plan: v.string(),
-      })
+      }),
     ),
   },
   handler: async (ctx, args) => {
@@ -74,8 +74,8 @@ export const updateCap = mutation({
           observation: v.string(),
           solution: v.string(),
           plan: v.string(),
-        })
-      )
+        }),
+      ),
     ),
   },
   handler: async (ctx, args) => {
@@ -86,7 +86,7 @@ export const updateCap = mutation({
     }
 
     const filteredUpdates = Object.fromEntries(
-      Object.entries(updates).filter(([_, v]) => v !== undefined)
+      Object.entries(updates).filter(([_, v]) => v !== undefined),
     );
 
     return await ctx.db.patch(id, {

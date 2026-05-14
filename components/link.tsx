@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
-"use client";
+("use client");
 
 import NextLink from "next/link";
 import { useRouter } from "next/navigation";
@@ -57,9 +57,12 @@ export const Link: typeof NextLink = (({ children, ...props }) => {
             await sleep(0);
 
             if (!imageCache.has(String(props.href))) {
-              void prefetchImages(String(props.href)).then((images) => {
-                imageCache.set(String(props.href), images);
-              }, (err: unknown) => Sentry.captureException(err));
+              void prefetchImages(String(props.href)).then(
+                (images) => {
+                  imageCache.set(String(props.href), images);
+                },
+                (err: unknown) => Sentry.captureException(err),
+              );
             }
 
             observer.unobserve(entry.target);
@@ -69,7 +72,7 @@ export const Link: typeof NextLink = (({ children, ...props }) => {
           prefetchTimeout = null;
         }
       },
-      { rootMargin: "0px", threshold: 0.1 }
+      { rootMargin: "0px", threshold: 0.1 },
     );
 
     observer.observe(linkElement);

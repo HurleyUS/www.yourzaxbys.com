@@ -3,7 +3,13 @@
 import { useQuery, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -85,8 +91,20 @@ export default function EmployeesPage() {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [roleFilter, setRoleFilter] = useState<string>("all");
 
-  type RoleType = "franchise_owner" | "above_store_team" | "store_manager" | "assistant_manager" | "shift_leader" | "team_member";
-  type PositionType = "cashier" | "cook" | "trainer" | "shift leader" | "gm" | "above store";
+  type RoleType =
+    | "franchise_owner"
+    | "above_store_team"
+    | "store_manager"
+    | "assistant_manager"
+    | "shift_leader"
+    | "team_member";
+  type PositionType =
+    | "cashier"
+    | "cook"
+    | "trainer"
+    | "shift leader"
+    | "gm"
+    | "above store";
 
   const [newEmployee, setNewEmployee] = useState<{
     first: string;
@@ -118,8 +136,9 @@ export default function EmployeesPage() {
         last: newEmployee.last,
         email: newEmployee.email,
         phone: newEmployee.phone || undefined,
-        role: newEmployee.role || undefined as RoleType | undefined,
-        position: newEmployee.position || undefined as PositionType | undefined,
+        role: newEmployee.role || (undefined as RoleType | undefined),
+        position:
+          newEmployee.position || (undefined as PositionType | undefined),
         storeId: newEmployee.storeId || undefined,
         status: "pending",
       });
@@ -139,7 +158,10 @@ export default function EmployeesPage() {
     }
   };
 
-  const handleStatusChange = async (employeeId: string, newStatus: "active" | "inactive" | "terminated") => {
+  const handleStatusChange = async (
+    employeeId: string,
+    newStatus: "active" | "inactive" | "terminated",
+  ) => {
     try {
       await updateEmployeeStatus({ id: employeeId as any, status: newStatus });
       toast.success(`Employee status updated to ${newStatus}`);
@@ -151,7 +173,9 @@ export default function EmployeesPage() {
   const filteredEmployees = employees?.filter((emp) => {
     const matchesSearch =
       searchQuery === "" ||
-      `${emp.first} ${emp.last}`.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      `${emp.first} ${emp.last}`
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase()) ||
       emp.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
       emp.eid.toLowerCase().includes(searchQuery.toLowerCase());
 
@@ -166,7 +190,9 @@ export default function EmployeesPage() {
       case "active":
         return <Badge className="bg-green-100 text-green-800">Active</Badge>;
       case "inactive":
-        return <Badge className="bg-yellow-100 text-yellow-800">Inactive</Badge>;
+        return (
+          <Badge className="bg-yellow-100 text-yellow-800">Inactive</Badge>
+        );
       case "pending":
         return <Badge className="bg-blue-100 text-blue-800">Pending</Badge>;
       case "terminated":
@@ -194,8 +220,12 @@ export default function EmployeesPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Employee Management</h1>
-          <p className="text-gray-500">Manage your team members across all locations</p>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Employee Management
+          </h1>
+          <p className="text-gray-500">
+            Manage your team members across all locations
+          </p>
         </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
@@ -218,7 +248,9 @@ export default function EmployeesPage() {
                   <Input
                     id="first"
                     value={newEmployee.first}
-                    onChange={(e) => setNewEmployee({ ...newEmployee, first: e.target.value })}
+                    onChange={(e) =>
+                      setNewEmployee({ ...newEmployee, first: e.target.value })
+                    }
                     placeholder="John"
                   />
                 </div>
@@ -227,7 +259,9 @@ export default function EmployeesPage() {
                   <Input
                     id="last"
                     value={newEmployee.last}
-                    onChange={(e) => setNewEmployee({ ...newEmployee, last: e.target.value })}
+                    onChange={(e) =>
+                      setNewEmployee({ ...newEmployee, last: e.target.value })
+                    }
                     placeholder="Smith"
                   />
                 </div>
@@ -238,7 +272,9 @@ export default function EmployeesPage() {
                   id="email"
                   type="email"
                   value={newEmployee.email}
-                  onChange={(e) => setNewEmployee({ ...newEmployee, email: e.target.value })}
+                  onChange={(e) =>
+                    setNewEmployee({ ...newEmployee, email: e.target.value })
+                  }
                   placeholder="john.smith@example.com"
                 />
               </div>
@@ -247,7 +283,9 @@ export default function EmployeesPage() {
                 <Input
                   id="phone"
                   value={newEmployee.phone}
-                  onChange={(e) => setNewEmployee({ ...newEmployee, phone: e.target.value })}
+                  onChange={(e) =>
+                    setNewEmployee({ ...newEmployee, phone: e.target.value })
+                  }
                   placeholder="(828) 555-1234"
                 />
               </div>
@@ -256,7 +294,12 @@ export default function EmployeesPage() {
                   <Label>Role</Label>
                   <Select
                     value={newEmployee.role}
-                    onValueChange={(value) => setNewEmployee({ ...newEmployee, role: value as RoleType })}
+                    onValueChange={(value) =>
+                      setNewEmployee({
+                        ...newEmployee,
+                        role: value as RoleType,
+                      })
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select role" />
@@ -274,7 +317,12 @@ export default function EmployeesPage() {
                   <Label>Position</Label>
                   <Select
                     value={newEmployee.position}
-                    onValueChange={(value) => setNewEmployee({ ...newEmployee, position: value as PositionType })}
+                    onValueChange={(value) =>
+                      setNewEmployee({
+                        ...newEmployee,
+                        position: value as PositionType,
+                      })
+                    }
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select position" />
@@ -293,7 +341,9 @@ export default function EmployeesPage() {
                 <Label>Store Assignment</Label>
                 <Select
                   value={newEmployee.storeId}
-                  onValueChange={(value) => setNewEmployee({ ...newEmployee, storeId: value })}
+                  onValueChange={(value) =>
+                    setNewEmployee({ ...newEmployee, storeId: value })
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select store" />
@@ -312,7 +362,10 @@ export default function EmployeesPage() {
               <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
                 Cancel
               </Button>
-              <Button onClick={handleCreateEmployee} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={handleCreateEmployee}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 Add Employee
               </Button>
             </DialogFooter>
@@ -326,7 +379,9 @@ export default function EmployeesPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Total Employees</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Total Employees
+                </p>
                 <p className="text-2xl font-bold">{stats.total}</p>
               </div>
               <Users className="h-8 w-8 text-blue-500" />
@@ -338,7 +393,9 @@ export default function EmployeesPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500">Active</p>
-                <p className="text-2xl font-bold text-green-600">{stats.active}</p>
+                <p className="text-2xl font-bold text-green-600">
+                  {stats.active}
+                </p>
               </div>
               <UserCheck className="h-8 w-8 text-green-500" />
             </div>
@@ -349,7 +406,9 @@ export default function EmployeesPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500">Pending</p>
-                <p className="text-2xl font-bold text-blue-600">{stats.pending}</p>
+                <p className="text-2xl font-bold text-blue-600">
+                  {stats.pending}
+                </p>
               </div>
               <Users className="h-8 w-8 text-blue-500" />
             </div>
@@ -360,7 +419,9 @@ export default function EmployeesPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-500">Inactive</p>
-                <p className="text-2xl font-bold text-yellow-600">{stats.inactive}</p>
+                <p className="text-2xl font-bold text-yellow-600">
+                  {stats.inactive}
+                </p>
               </div>
               <UserX className="h-8 w-8 text-yellow-500" />
             </div>
@@ -431,11 +492,14 @@ export default function EmployeesPage() {
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
                         <span className="text-red-600 font-medium">
-                          {employee.first[0]}{employee.last[0]}
+                          {employee.first[0]}
+                          {employee.last[0]}
                         </span>
                       </div>
                       <div>
-                        <p className="font-medium">{employee.first} {employee.last}</p>
+                        <p className="font-medium">
+                          {employee.first} {employee.last}
+                        </p>
                         <p className="text-sm text-gray-500">{employee.eid}</p>
                       </div>
                     </div>
@@ -458,7 +522,9 @@ export default function EmployeesPage() {
                     <div className="space-y-1">
                       {getRoleBadge(employee.role)}
                       {employee.position && (
-                        <p className="text-sm text-gray-500 capitalize">{employee.position}</p>
+                        <p className="text-sm text-gray-500 capitalize">
+                          {employee.position}
+                        </p>
                       )}
                     </div>
                   </TableCell>
@@ -466,7 +532,8 @@ export default function EmployeesPage() {
                     {employee.storeId ? (
                       <div className="flex items-center text-sm">
                         <Building className="h-3 w-3 mr-2 text-gray-400" />
-                        {stores?.find((s) => s._id === employee.storeId)?.name || "Unknown"}
+                        {stores?.find((s) => s._id === employee.storeId)
+                          ?.name || "Unknown"}
                       </div>
                     ) : (
                       <span className="text-gray-400">—</span>
@@ -487,21 +554,31 @@ export default function EmployeesPage() {
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
                         {employee.status !== "active" && (
-                          <DropdownMenuItem onClick={() => handleStatusChange(employee._id, "active")}>
+                          <DropdownMenuItem
+                            onClick={() =>
+                              handleStatusChange(employee._id, "active")
+                            }
+                          >
                             <UserCheck className="h-4 w-4 mr-2" />
                             Set Active
                           </DropdownMenuItem>
                         )}
                         {employee.status !== "inactive" && (
-                          <DropdownMenuItem onClick={() => handleStatusChange(employee._id, "inactive")}>
+                          <DropdownMenuItem
+                            onClick={() =>
+                              handleStatusChange(employee._id, "inactive")
+                            }
+                          >
                             <UserX className="h-4 w-4 mr-2" />
                             Set Inactive
                           </DropdownMenuItem>
                         )}
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem 
+                        <DropdownMenuItem
                           className="text-red-600"
-                          onClick={() => handleStatusChange(employee._id, "terminated")}
+                          onClick={() =>
+                            handleStatusChange(employee._id, "terminated")
+                          }
                         >
                           <Trash2 className="h-4 w-4 mr-2" />
                           Terminate
@@ -513,7 +590,10 @@ export default function EmployeesPage() {
               ))}
               {filteredEmployees?.length === 0 && (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-8 text-gray-500">
+                  <TableCell
+                    colSpan={6}
+                    className="text-center py-8 text-gray-500"
+                  >
                     No employees found matching your criteria
                   </TableCell>
                 </TableRow>

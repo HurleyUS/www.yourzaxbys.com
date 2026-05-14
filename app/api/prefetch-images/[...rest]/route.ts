@@ -16,7 +16,7 @@ function getHostname() {
 
 export async function GET(
   _: NextRequest,
-  { params }: { params: Promise<{ rest: string[] }> }
+  { params }: { params: Promise<{ rest: string[] }> },
 ) {
   try {
     const schema = process.env.NODE_ENV === "development" ? "http" : "https";
@@ -50,7 +50,7 @@ export async function GET(
         headers: {
           "Cache-Control": "public, max-age=3600",
         },
-      }
+      },
     );
   } catch (error) {
     Sentry.captureException(error);

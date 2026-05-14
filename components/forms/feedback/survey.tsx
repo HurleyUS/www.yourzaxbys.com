@@ -131,7 +131,7 @@ function Choice(form: UseFormReturn, question: keyof typeof questions) {
                   <RadioGroupItem key={key} value={value.toString()}>
                     {key}
                   </RadioGroupItem>
-                )
+                ),
               )}
             </RadioGroup>
           </FormControl>

@@ -28,9 +28,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navigation />
-          <main>
-            {children}
-          </main>
+          <main>{children}</main>
           <Footer />
         </Providers>
       </body>

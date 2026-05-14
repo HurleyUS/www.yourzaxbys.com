@@ -22,21 +22,25 @@ export function useDate() {
  */
 export function useFormattedDate(
   date: Date | string | number | null | undefined,
-  options?: Intl.DateTimeFormatOptions
+  options?: Intl.DateTimeFormatOptions,
 ) {
   const [formatted, setFormatted] = useState<string>("");
 
   useEffect(() => {
     if (date) {
-      const d = typeof date === "string" || typeof date === "number" 
-        ? new Date(date) 
-        : date;
+      const d =
+        typeof date === "string" || typeof date === "number"
+          ? new Date(date)
+          : date;
       setFormatted(
-        d.toLocaleDateString(undefined, options ?? {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })
+        d.toLocaleDateString(
+          undefined,
+          options ?? {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          },
+        ),
       );
     }
   }, [date, options]);

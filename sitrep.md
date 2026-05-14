@@ -9,17 +9,20 @@
 - **Priority:** HIGH (Client Project)
 
 ## What's Working
+
 - Core platform structure
 - Sales metrics and analytics
 - Labor management
 - Performance dashboards
 
 ## What's Broken/Missing
+
 - Some features in development
 - Multi-store management needs completion
 - Reporting features
 
 ## Next Steps
+
 1. Complete multi-store features
 2. Add advanced reporting
 3. User testing with franchise owners

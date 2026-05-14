@@ -4,10 +4,7 @@ import { v } from "convex/values";
 export const list = query({
   args: {},
   handler: async (ctx) => {
-    return await ctx.db
-      .query("stores")
-      .order("desc")
-      .collect();
+    return await ctx.db.query("stores").order("desc").collect();
   },
 });
 
@@ -16,7 +13,9 @@ export const getByStoreNumber = query({
   handler: async (ctx, args) => {
     return await ctx.db
       .query("stores")
-      .withIndex("by_store_number", (q) => q.eq("storeNumber", args.storeNumber))
+      .withIndex("by_store_number", (q) =>
+        q.eq("storeNumber", args.storeNumber),
+      )
       .first();
   },
 });
@@ -76,9 +75,9 @@ export const update = mutation({
   handler: async (ctx, args) => {
     const { id, ...updates } = args;
     const filteredUpdates = Object.fromEntries(
-      Object.entries(updates).filter(([_, value]) => value !== undefined)
+      Object.entries(updates).filter(([_, value]) => value !== undefined),
     );
-    
+
     return await ctx.db.patch(id, {
       ...filteredUpdates,
       updatedAt: Date.now(),

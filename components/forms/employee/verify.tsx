@@ -40,7 +40,7 @@ export default function Verify() {
         ssn: ssnLast4Validator,
         dob: dobValidator,
         email: emailValidator,
-      })
+      }),
     ),
     defaultValues: {
       ssn: "",
@@ -111,7 +111,7 @@ export default function Verify() {
       email !== employee.email
     ) {
       redirect(
-        `${process.env.NEXT_PUBLIC_APP_URL}/login?error=Invalid credentials`
+        `${process.env.NEXT_PUBLIC_APP_URL}/login?error=Invalid credentials`,
       );
     }
 

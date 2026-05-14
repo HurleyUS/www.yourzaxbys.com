@@ -9,6 +9,7 @@ This platform empowers Zaxby's franchisees with powerful tools to optimize their
 ## ✨ Key Features
 
 ### 📊 Performance Analytics
+
 - **Sales Metrics**: Real-time sales tracking, trend analysis, and forecasting
 - **Labor Management**: Cost optimization, scheduling efficiency, and overtime monitoring
 - **Waste Tracking**: Food waste monitoring and reduction strategies
@@ -19,6 +20,7 @@ This platform empowers Zaxby's franchisees with powerful tools to optimize their
 - **Audit Management**: Steritech and Health Department score tracking
 
 ### 👥 Human Resources
+
 - **Hiring Process**: Complete ATS with applicant communication tools
 - **Onboarding**: Digital workflows and training management
 - **Attendance**: Time tracking and schedule management
@@ -26,15 +28,18 @@ This platform empowers Zaxby's franchisees with powerful tools to optimize their
 - **Training**: Agenda creation and progress tracking
 
 ### 👕 Uniform Management
+
 - **Allocation Tracking**: Employee uniform assignments and condition monitoring
 - **Sales Management**: Uniform inventory and employee purchases
 
 ### 🔧 Maintenance & Operations
+
 - **Ticket System**: Maintenance issue reporting and resolution tracking
 - **Equipment Management**: Inventory, maintenance schedules, and vendor management
 - **Smallwares**: Ordering, fulfillment, and usage tracking
 
 ### 🎉 Catering & Marketing
+
 - **CRM System**: Customer relationship and order management
 - **Local Marketing**: Campaign management and ROI tracking
 
@@ -51,6 +56,7 @@ This platform empowers Zaxby's franchisees with powerful tools to optimize their
 ## 🏗️ Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ or Bun
 - Convex account
 - Clerk account
@@ -58,12 +64,14 @@ This platform empowers Zaxby's franchisees with powerful tools to optimize their
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/michaelmonetized/www.yourzaxbys.com.git
 cd yourzaxbys.com
 ```
 
 2. Install dependencies:
+
 ```bash
 bun install
 # or
@@ -71,11 +79,13 @@ npm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env.local
 ```
 
 4. Configure your environment variables:
+
 ```env
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
@@ -83,6 +93,7 @@ CONVEX_DEPLOYMENT=your_convex_deployment_url
 ```
 
 5. Start the development server:
+
 ```bash
 bun dev
 # or
@@ -155,6 +166,7 @@ This project is proprietary software owned by Zaxby's Franchising LLC. All right
 ## 📞 Support
 
 For support and questions:
+
 - Email: support@yourzaxbys.com
 - Documentation: [docs.yourzaxbys.com](https://docs.yourzaxbys.com)
 - Status Page: [status.yourzaxbys.com](https://status.yourzaxbys.com)

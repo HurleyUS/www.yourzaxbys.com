@@ -30,11 +30,17 @@ export default function Hero({
 
       <div className="relative grid gap-lg md:grid-cols-[1.5fr_1fr] md:items-center">
         <div className="space-y-md">
-          <div className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">{title}</div>
+          <div className="text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+            {title}
+          </div>
           {description ? (
-            <p className="text-pretty text-lg text-muted-foreground">{description}</p>
+            <p className="text-pretty text-lg text-muted-foreground">
+              {description}
+            </p>
           ) : null}
-          {actions ? <div className="flex flex-wrap gap-sm">{actions}</div> : null}
+          {actions ? (
+            <div className="flex flex-wrap gap-sm">{actions}</div>
+          ) : null}
         </div>
         <div className="grid gap-sm">
           {rightContent

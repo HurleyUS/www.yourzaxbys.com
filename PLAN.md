@@ -7,10 +7,12 @@ Corporate website/dashboard for multi-unit Zaxby's franchise operations, providi
 ## Current State
 
 ### Completed
+
 - ✅ Project structure exists
 - ✅ Package.json configured
 
 ### Not Started
+
 - ⬜ Multi-location dashboard
 - ⬜ Cross-store reporting
 - ⬜ Document sharing

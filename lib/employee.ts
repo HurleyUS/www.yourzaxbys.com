@@ -74,10 +74,7 @@ export const isValidEID = (eid: string): boolean => {
 // Full SSN validator - used client-side only for EID generation, NEVER stored
 export const ssn = z
   .string()
-  .regex(
-    /^\d{3}-\d{2}-\d{4}$/,
-    "SSN must be in format XXX-XX-XXXX"
-  )
+  .regex(/^\d{3}-\d{2}-\d{4}$/, "SSN must be in format XXX-XX-XXXX")
   .optional();
 
 // Last 4 digits of SSN - the ONLY SSN data that may be stored
@@ -88,10 +85,7 @@ export const ssnLast4 = z
 
 export const dob = z
   .string()
-  .regex(
-    /^\d{4}-\d{2}-\d{2}$/,
-    "Date of birth must be in format YYYY-MM-DD"
-  )
+  .regex(/^\d{4}-\d{2}-\d{2}$/, "Date of birth must be in format YYYY-MM-DD")
   .optional();
 
 export const email = z
@@ -101,10 +95,7 @@ export const email = z
 
 export const phone = z
   .string()
-  .regex(
-    /^\d{3}-\d{3}-\d{4}$/,
-    "Phone must be in format XXX-XXX-XXXX"
-  )
+  .regex(/^\d{3}-\d{3}-\d{4}$/, "Phone must be in format XXX-XXX-XXXX")
   .optional();
 
 // Employee Zod schema for form validation
@@ -114,27 +105,22 @@ export const EmployeeObject = z.object({
   last: z.string().min(1, "Last name is required"),
   email: email,
   phone: phone,
-  role: z.enum([
-    "franchise_owner",
-    "above_store_team",
-    "store_manager",
-    "assistant_manager",
-    "shift_leader",
-    "team_member",
-  ]).optional(),
-  position: z.enum([
-    "cashier",
-    "cook",
-    "trainer",
-    "shift leader",
-    "gm",
-    "above store",
-  ]).optional(),
+  role: z
+    .enum([
+      "franchise_owner",
+      "above_store_team",
+      "store_manager",
+      "assistant_manager",
+      "shift_leader",
+      "team_member",
+    ])
+    .optional(),
+  position: z
+    .enum(["cashier", "cook", "trainer", "shift leader", "gm", "above store"])
+    .optional(),
   storeId: z.string().optional(),
   hireDate: z.string().optional(),
-  status: z
-    .enum(["active", "inactive", "pending", "terminated"])
-    .optional(),
+  status: z.enum(["active", "inactive", "pending", "terminated"]).optional(),
   address: z.string().optional(),
   city: z.string().optional(),
   state: z.string().optional(),

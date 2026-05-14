@@ -3,7 +3,13 @@
 import { useQuery, useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -90,18 +96,40 @@ export default function StoresPage() {
 
   // Sample KPIs for stores
   const storeMetrics = [
-    { storeNumber: "#1234", weeklySales: 45200, laborCost: 22.3, auditScore: 94 },
-    { storeNumber: "#1235", weeklySales: 38900, laborCost: 26.1, auditScore: 88 },
-    { storeNumber: "#1236", weeklySales: 52100, laborCost: 21.8, auditScore: 96 },
-    { storeNumber: "#1237", weeklySales: 41500, laborCost: 24.2, auditScore: 91 },
+    {
+      storeNumber: "#1234",
+      weeklySales: 45200,
+      laborCost: 22.3,
+      auditScore: 94,
+    },
+    {
+      storeNumber: "#1235",
+      weeklySales: 38900,
+      laborCost: 26.1,
+      auditScore: 88,
+    },
+    {
+      storeNumber: "#1236",
+      weeklySales: 52100,
+      laborCost: 21.8,
+      auditScore: 96,
+    },
+    {
+      storeNumber: "#1237",
+      weeklySales: 41500,
+      laborCost: 24.2,
+      auditScore: 91,
+    },
   ];
 
   const getMetrics = (storeNumber: string) => {
-    return storeMetrics.find((m) => m.storeNumber === `#${storeNumber}`) || {
-      weeklySales: 0,
-      laborCost: 0,
-      auditScore: 0,
-    };
+    return (
+      storeMetrics.find((m) => m.storeNumber === `#${storeNumber}`) || {
+        weeklySales: 0,
+        laborCost: 0,
+        auditScore: 0,
+      }
+    );
   };
 
   return (
@@ -133,7 +161,9 @@ export default function StoresPage() {
                   <Input
                     id="name"
                     value={newStore.name}
-                    onChange={(e) => setNewStore({ ...newStore, name: e.target.value })}
+                    onChange={(e) =>
+                      setNewStore({ ...newStore, name: e.target.value })
+                    }
                     placeholder="Zaxby's Waynesville"
                   />
                 </div>
@@ -142,7 +172,9 @@ export default function StoresPage() {
                   <Input
                     id="storeNumber"
                     value={newStore.storeNumber}
-                    onChange={(e) => setNewStore({ ...newStore, storeNumber: e.target.value })}
+                    onChange={(e) =>
+                      setNewStore({ ...newStore, storeNumber: e.target.value })
+                    }
                     placeholder="1234"
                   />
                 </div>
@@ -152,7 +184,9 @@ export default function StoresPage() {
                 <Input
                   id="address"
                   value={newStore.address}
-                  onChange={(e) => setNewStore({ ...newStore, address: e.target.value })}
+                  onChange={(e) =>
+                    setNewStore({ ...newStore, address: e.target.value })
+                  }
                   placeholder="123 Main St"
                 />
               </div>
@@ -162,7 +196,9 @@ export default function StoresPage() {
                   <Input
                     id="city"
                     value={newStore.city}
-                    onChange={(e) => setNewStore({ ...newStore, city: e.target.value })}
+                    onChange={(e) =>
+                      setNewStore({ ...newStore, city: e.target.value })
+                    }
                     placeholder="Waynesville"
                   />
                 </div>
@@ -171,7 +207,9 @@ export default function StoresPage() {
                   <Input
                     id="state"
                     value={newStore.state}
-                    onChange={(e) => setNewStore({ ...newStore, state: e.target.value })}
+                    onChange={(e) =>
+                      setNewStore({ ...newStore, state: e.target.value })
+                    }
                     placeholder="NC"
                   />
                 </div>
@@ -180,7 +218,9 @@ export default function StoresPage() {
                   <Input
                     id="zip"
                     value={newStore.zip}
-                    onChange={(e) => setNewStore({ ...newStore, zip: e.target.value })}
+                    onChange={(e) =>
+                      setNewStore({ ...newStore, zip: e.target.value })
+                    }
                     placeholder="28786"
                   />
                 </div>
@@ -190,7 +230,9 @@ export default function StoresPage() {
                 <Input
                   id="phone"
                   value={newStore.phone}
-                  onChange={(e) => setNewStore({ ...newStore, phone: e.target.value })}
+                  onChange={(e) =>
+                    setNewStore({ ...newStore, phone: e.target.value })
+                  }
                   placeholder="(828) 555-1234"
                 />
               </div>
@@ -199,7 +241,10 @@ export default function StoresPage() {
               <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
                 Cancel
               </Button>
-              <Button onClick={handleCreateStore} className="bg-red-600 hover:bg-red-700">
+              <Button
+                onClick={handleCreateStore}
+                className="bg-red-600 hover:bg-red-700"
+              >
                 Create Store
               </Button>
             </DialogFooter>
@@ -213,7 +258,9 @@ export default function StoresPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Total Stores</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Total Stores
+                </p>
                 <p className="text-2xl font-bold">{stores?.length || 0}</p>
               </div>
               <Store className="h-8 w-8 text-red-500" />
@@ -224,7 +271,9 @@ export default function StoresPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Weekly Revenue</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Weekly Revenue
+                </p>
                 <p className="text-2xl font-bold">$177.7K</p>
               </div>
               <TrendingUp className="h-8 w-8 text-green-500" />
@@ -235,7 +284,9 @@ export default function StoresPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Avg Labor Cost</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Avg Labor Cost
+                </p>
                 <p className="text-2xl font-bold">23.6%</p>
               </div>
               <Users className="h-8 w-8 text-blue-500" />
@@ -246,7 +297,9 @@ export default function StoresPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-500">Avg Audit Score</p>
+                <p className="text-sm font-medium text-gray-500">
+                  Avg Audit Score
+                </p>
                 <p className="text-2xl font-bold">92.3</p>
               </div>
               <TrendingUp className="h-8 w-8 text-purple-500" />
@@ -265,9 +318,15 @@ export default function StoresPage() {
                 <div className="flex items-start justify-between">
                   <div>
                     <CardTitle className="text-lg">{store.name}</CardTitle>
-                    <CardDescription>Store #{store.storeNumber}</CardDescription>
+                    <CardDescription>
+                      Store #{store.storeNumber}
+                    </CardDescription>
                   </div>
-                  <Badge variant={store.status === "active" ? "default" : "secondary"}>
+                  <Badge
+                    variant={
+                      store.status === "active" ? "default" : "secondary"
+                    }
+                  >
                     {store.status}
                   </Badge>
                 </div>
@@ -284,22 +343,28 @@ export default function StoresPage() {
                       {store.phone}
                     </div>
                   )}
-                  
+
                   <div className="border-t pt-3 mt-3">
                     <div className="grid grid-cols-3 gap-2 text-center">
                       <div>
                         <p className="text-xs text-gray-500">Weekly Sales</p>
-                        <p className="font-semibold">${(metrics.weeklySales / 1000).toFixed(1)}K</p>
+                        <p className="font-semibold">
+                          ${(metrics.weeklySales / 1000).toFixed(1)}K
+                        </p>
                       </div>
                       <div>
                         <p className="text-xs text-gray-500">Labor %</p>
-                        <p className={`font-semibold ${metrics.laborCost > 25 ? "text-red-600" : "text-green-600"}`}>
+                        <p
+                          className={`font-semibold ${metrics.laborCost > 25 ? "text-red-600" : "text-green-600"}`}
+                        >
                           {metrics.laborCost}%
                         </p>
                       </div>
                       <div>
                         <p className="text-xs text-gray-500">Audit</p>
-                        <p className={`font-semibold ${metrics.auditScore >= 90 ? "text-green-600" : metrics.auditScore >= 80 ? "text-yellow-600" : "text-red-600"}`}>
+                        <p
+                          className={`font-semibold ${metrics.auditScore >= 90 ? "text-green-600" : metrics.auditScore >= 80 ? "text-yellow-600" : "text-red-600"}`}
+                        >
                           {metrics.auditScore}
                         </p>
                       </div>
@@ -323,7 +388,10 @@ export default function StoresPage() {
         })}
 
         {/* Add Store Card */}
-        <Card className="border-dashed hover:border-red-300 transition-colors cursor-pointer" onClick={() => setIsDialogOpen(true)}>
+        <Card
+          className="border-dashed hover:border-red-300 transition-colors cursor-pointer"
+          onClick={() => setIsDialogOpen(true)}
+        >
           <CardContent className="flex flex-col items-center justify-center h-full min-h-[250px] text-gray-400 hover:text-red-500">
             <Plus className="h-12 w-12 mb-2" />
             <p className="font-medium">Add New Store</p>

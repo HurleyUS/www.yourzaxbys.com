@@ -5,9 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useAuth, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { 
-  Menu, 
-  X, 
+import {
+  Menu,
+  X,
   ChevronDown,
   BarChart3,
   DollarSign,
@@ -62,7 +62,7 @@ export function Navigation() {
                 {item.name}
               </Link>
             ))}
-            
+
             {/* Resources Dropdown */}
             <div className="relative">
               <button
@@ -72,7 +72,7 @@ export function Navigation() {
                 Resources
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              
+
               {resourcesOpen && (
                 <div className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
                   {resources.map((resource) => (
@@ -152,7 +152,7 @@ export function Navigation() {
                   {item.name}
                 </Link>
               ))}
-              
+
               <div className="border-t border-gray-200 pt-4">
                 <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   Resources
@@ -169,14 +169,21 @@ export function Navigation() {
                 ))}
               </div>
             </div>
-            
+
             <div className="border-t border-gray-200 pb-3 pt-4">
               <div className="flex items-center px-3">
                 <div className="flex flex-col space-y-2 w-full">
                   {isSignedIn ? (
                     <>
-                      <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-                        <Button variant="outline" size="sm" className="w-full justify-start">
+                      <Link
+                        href="/dashboard"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full justify-start"
+                        >
                           <LayoutDashboard className="h-4 w-4 mr-2" />
                           Dashboard
                         </Button>
@@ -188,13 +195,26 @@ export function Navigation() {
                     </>
                   ) : (
                     <>
-                      <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
-                        <Button variant="ghost" size="sm" className="justify-start w-full">
+                      <Link
+                        href="/login"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="justify-start w-full"
+                        >
                           Sign In
                         </Button>
                       </Link>
-                      <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
-                        <Button size="sm" className="bg-red-600 hover:bg-red-700 w-full">
+                      <Link
+                        href="/signup"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <Button
+                          size="sm"
+                          className="bg-red-600 hover:bg-red-700 w-full"
+                        >
                           Start Free Trial
                         </Button>
                       </Link>

@@ -9,7 +9,7 @@ const outline = {
       href: string;
       title: string;
     }>;
-  }>
+  }>,
 };
 import { Link } from "@/components/link";
 import {

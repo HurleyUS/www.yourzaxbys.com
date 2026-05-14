@@ -27,8 +27,7 @@ export default function SignUpPage() {
           <SignUp
             appearance={{
               elements: {
-                formButtonPrimary:
-                  "bg-red-600 hover:bg-red-700 text-white",
+                formButtonPrimary: "bg-red-600 hover:bg-red-700 text-white",
                 footerActionLink: "text-red-600 hover:text-red-700",
               },
             }}

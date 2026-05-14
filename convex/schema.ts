@@ -9,22 +9,26 @@ export default defineSchema({
     last: v.string(),
     email: v.string(),
     phone: v.optional(v.string()),
-    role: v.optional(v.union(
-      v.literal("franchise_owner"),
-      v.literal("above_store_team"),
-      v.literal("store_manager"),
-      v.literal("assistant_manager"),
-      v.literal("shift_leader"),
-      v.literal("team_member")
-    )),
-    position: v.optional(v.union(
-      v.literal("cashier"),
-      v.literal("cook"),
-      v.literal("trainer"),
-      v.literal("shift leader"),
-      v.literal("gm"),
-      v.literal("above store")
-    )),
+    role: v.optional(
+      v.union(
+        v.literal("franchise_owner"),
+        v.literal("above_store_team"),
+        v.literal("store_manager"),
+        v.literal("assistant_manager"),
+        v.literal("shift_leader"),
+        v.literal("team_member"),
+      ),
+    ),
+    position: v.optional(
+      v.union(
+        v.literal("cashier"),
+        v.literal("cook"),
+        v.literal("trainer"),
+        v.literal("shift leader"),
+        v.literal("gm"),
+        v.literal("above store"),
+      ),
+    ),
     storeId: v.optional(v.string()),
     hireDate: v.optional(v.string()),
     // Legacy fields for existing data
@@ -43,7 +47,7 @@ export default defineSchema({
       v.literal("active"),
       v.literal("inactive"),
       v.literal("pending"),
-      v.literal("terminated")
+      v.literal("terminated"),
     ),
     clerkUserId: v.optional(v.string()),
     hourlyRate: v.optional(v.number()),
@@ -81,7 +85,7 @@ export default defineSchema({
     status: v.union(
       v.literal("draft"),
       v.literal("published"),
-      v.literal("archived")
+      v.literal("archived"),
     ),
     publishedAt: v.optional(v.number()),
     publishedBy: v.optional(v.string()),
@@ -108,7 +112,7 @@ export default defineSchema({
       v.literal("confirmed"),
       v.literal("completed"),
       v.literal("cancelled"),
-      v.literal("no_show")
+      v.literal("no_show"),
     ),
     createdAt: v.number(),
     updatedAt: v.number(),
@@ -131,7 +135,7 @@ export default defineSchema({
         observation: v.string(),
         solution: v.string(),
         plan: v.string(),
-      })
+      }),
     ),
     createdBy: v.optional(v.string()),
     createdAt: v.number(),
@@ -148,19 +152,27 @@ export default defineSchema({
       v.literal("steritech"),
       v.literal("health_department"),
       v.literal("internal"),
-      v.literal("rer")
+      v.literal("rer"),
     ),
     score: v.number(),
     maxScore: v.number(),
     inspector: v.string(),
     date: v.number(),
     notes: v.optional(v.string()),
-    findings: v.optional(v.array(v.object({
-      category: v.string(),
-      observation: v.string(),
-      severity: v.union(v.literal("critical"), v.literal("major"), v.literal("minor")),
-      correctionRequired: v.boolean(),
-    }))),
+    findings: v.optional(
+      v.array(
+        v.object({
+          category: v.string(),
+          observation: v.string(),
+          severity: v.union(
+            v.literal("critical"),
+            v.literal("major"),
+            v.literal("minor"),
+          ),
+          correctionRequired: v.boolean(),
+        }),
+      ),
+    ),
     createdBy: v.optional(v.string()),
     createdAt: v.number(),
     updatedAt: v.number(),
@@ -207,7 +219,7 @@ export default defineSchema({
       v.literal("info"),
       v.literal("warning"),
       v.literal("error"),
-      v.literal("success")
+      v.literal("success"),
     ),
     read: v.boolean(),
     link: v.optional(v.string()),
