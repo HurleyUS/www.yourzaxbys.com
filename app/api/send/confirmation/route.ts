@@ -1,9 +1,16 @@
 import { ConfirmationEmail } from "@/components/emails/confirmation";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+  if (!resendApiKey) {
+    return Response.json(
+      { error: "RESEND_API_KEY is not configured" },
+      { status: 500 },
+    );
+  }
+
+  const resend = new Resend(resendApiKey);
   const { contact } = await request.json();
   const confirmEmail = await ConfirmationEmail({ name: contact.name });
 
