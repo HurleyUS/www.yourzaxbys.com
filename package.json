@@ -19,7 +19,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "bunx --bun @biomejs/biome lint . --only=correctness --diagnostic-level=error --max-diagnostics=200",
     "format": "bunx --bun prettier --write . --ignore-path .gitignore",
     "typecheck": "tsc --noEmit",
     "check": "bun run typecheck && bun run build"
