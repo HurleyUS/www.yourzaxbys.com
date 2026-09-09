@@ -1,5 +1,9 @@
 # Zaxby's Franchise Management Platform
 
+Showcase: https://wwwyourzaxbyscom.vercel.app
+
+The custom domain is dead. Do not send anyone there. This vercel.app alias is the live proof.
+
 A comprehensive management platform designed specifically for Zaxby's franchise owners, above-store team members, and in-store managers to streamline operations, track performance metrics, and manage all aspects of store operations.
 
 ## 🎯 Overview
@@ -132,7 +136,7 @@ npm run dev
 ## 📈 Performance Metrics
 
 - **Response Time**: < 2 seconds for all page loads
-- **Uptime**: 99.9% availability
+- **Uptime**: not measured (lander 99.9% is demo copy, not a receipt)
 - **Scalability**: Support for 1000+ concurrent users
 - **Mobile Responsive**: Full functionality on mobile devices
 

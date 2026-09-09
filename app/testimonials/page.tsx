@@ -111,10 +111,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { label: "Average Rating", value: "4.9★", icon: Star },
-  { label: "Time Saved", value: "15hrs/week", icon: Clock },
-  { label: "Cost Reduction", value: "25%", icon: DollarSign },
-  { label: "Happy Customers", value: "500+", icon: Users },
+  { label: "Average Rating (demo)", value: "4.9★", icon: Star },
+  { label: "Time Saved (demo)", value: "15hrs/week", icon: Clock },
+  { label: "Cost Reduction (demo)", value: "25%", icon: DollarSign },
+  { label: "Happy Customers (demo)", value: "500+", icon: Users },
 ];
 
 export default function TestimonialsPage() {
@@ -132,9 +132,8 @@ export default function TestimonialsPage() {
               <span className="block text-red-600">Are Saying</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Don't just take our word for it. Hear from successful Zaxby's
-              franchisees who have transformed their operations and achieved
-              remarkable results with our platform.
+              Sample quotes for this unpaid showcase. Not verified reviews. The
+              500+ / 25% / 4.9 numbers are demo copy, not receipts.
             </p>
           </div>
         </div>

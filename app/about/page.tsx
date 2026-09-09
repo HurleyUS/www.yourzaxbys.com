@@ -81,10 +81,10 @@ const team = [
 ];
 
 const stats = [
-  { label: "Active Locations", value: "500+", icon: BarChart3 },
-  { label: "Cost Reduction", value: "25%", icon: DollarSign },
-  { label: "Time Saved", value: "15hrs/week", icon: Clock },
-  { label: "Customer Satisfaction", value: "4.9★", icon: Award },
+  { label: "Active Locations (demo)", value: "500+", icon: BarChart3 },
+  { label: "Cost Reduction (demo)", value: "25%", icon: DollarSign },
+  { label: "Time Saved (demo)", value: "15hrs/week", icon: Clock },
+  { label: "Customer Satisfaction (demo)", value: "4.9★", icon: Award },
 ];
 
 export default function AboutPage() {
@@ -263,15 +263,15 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <div className="flex items-center justify-center">
               <CheckCircle className="h-5 w-5 mr-2" />
-              <span>500+ Successful Locations</span>
+              <span>500+ Successful Locations (demo copy)</span>
             </div>
             <div className="flex items-center justify-center">
               <CheckCircle className="h-5 w-5 mr-2" />
-              <span>25% Average Cost Reduction</span>
+              <span>25% Average Cost Reduction (demo copy)</span>
             </div>
             <div className="flex items-center justify-center">
               <CheckCircle className="h-5 w-5 mr-2" />
-              <span>4.9★ Customer Satisfaction</span>
+              <span>4.9★ Customer Satisfaction (demo copy)</span>
             </div>
           </div>
         </div>

@@ -73,6 +73,9 @@ export default function Home() {
               <div className="text-gray-600">User Rating</div>
             </div>
           </div>
+          <p className="mt-6 text-sm text-gray-500 max-w-2xl mx-auto">
+            Demo copy for this unpaid showcase. Not measured results. Not receipts.
+          </p>
         </div>
       </section>
 
@@ -403,11 +406,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Proven Results for Zaxby's Franchisees
+              What this demo is selling
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join hundreds of successful franchisees who have transformed their
-              operations
+              Sample numbers below are lander theater. They are not franchise
+              receipts.
             </p>
           </div>
 
