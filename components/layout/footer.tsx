@@ -9,7 +9,6 @@ import {
   Instagram,
   Youtube,
   Mail,
-  Phone,
   MapPin,
   ArrowUp,
 } from "lucide-react";
@@ -100,12 +99,10 @@ export function Footer() {
                 <span>1040 Zaxby's Blvd, Athens, GA 30601</span>
               </div>
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                <span>(555) 123-ZAXBYS</span>
-              </div>
-              <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
-                <span>support@yourzaxbys.com</span>
+                <a href="mailto:support@yourzaxbys.com" className="hover:text-white">
+                  support@yourzaxbys.com
+                </a>
               </div>
             </div>
           </div>

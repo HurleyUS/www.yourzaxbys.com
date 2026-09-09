@@ -17,7 +17,12 @@ export function FinalCTA() {
       </Button>
       <div className="flex items-center text-gray-300">
         <Headphones className="h-5 w-5 mr-2" />
-        <span>Need help? Call (555) 123-ZAXBYS</span>
+        <span>
+          Need help?{" "}
+          <a href="mailto:support@yourzaxbys.com" className="underline hover:text-white">
+            Email support@yourzaxbys.com
+          </a>
+        </span>
       </div>
     </div>
   );

@@ -318,8 +318,6 @@ export default function PrivacyPolicy() {
               <br />
               Email: privacy@yourzaxbys.com
               <br />
-              Phone: (555) 123-ZAXBYS
-              <br />
               Address: 1040 Zaxby's Blvd, Athens, GA 30601
             </p>
           </div>
