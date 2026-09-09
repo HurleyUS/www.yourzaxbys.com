@@ -13,7 +13,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import {
   Mail,
-  Phone,
   MapPin,
   Clock,
   MessageSquare,
@@ -28,14 +27,6 @@ export const metadata: Metadata = {
 };
 
 const contactMethods = [
-  {
-    icon: Phone,
-    title: "Phone Support",
-    description: "Speak directly with our support team",
-    contact: "(555) 123-ZAXBYS",
-    hours: "Mon-Fri 8AM-8PM EST",
-    action: "Call Now",
-  },
   {
     icon: Mail,
     title: "Email Support",
@@ -67,21 +58,18 @@ const teamMembers = [
     name: "Sarah Johnson",
     title: "Customer Success Manager",
     email: "sarah@yourzaxbys.com",
-    phone: "(555) 123-4567",
     image: "/team/sarah-johnson.jpg",
   },
   {
     name: "Michael Chen",
     title: "Technical Support Lead",
     email: "michael@yourzaxbys.com",
-    phone: "(555) 123-4568",
     image: "/team/michael-chen.jpg",
   },
   {
     name: "Lisa Rodriguez",
     title: "Implementation Specialist",
     email: "lisa@yourzaxbys.com",
-    phone: "(555) 123-4569",
     image: "/team/lisa-rodriguez.jpg",
   },
 ];
@@ -263,20 +251,15 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="h-6 w-6 text-red-600 mr-4 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">(555) 123-ZAXBYS</p>
-                    <p className="text-sm text-gray-500">Mon-Fri 8AM-8PM EST</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
                   <Mail className="h-6 w-6 text-red-600 mr-4 mt-1" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">support@yourzaxbys.com</p>
-                    <p className="text-sm text-gray-500">24/7 Response</p>
+                    <p className="text-gray-600">
+                      <a href="mailto:support@yourzaxbys.com" className="text-red-600 hover:underline">
+                        support@yourzaxbys.com
+                      </a>
+                    </p>
+                    <p className="text-sm text-gray-500">Preferred contact — no public phone line published</p>
                   </div>
                 </div>
 
