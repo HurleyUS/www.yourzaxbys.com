@@ -4,8 +4,9 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      disallow: "/",
+      allow: "/",
+      disallow: ["/api/", "/dashboard/", "/team/", "/onboarding/"],
     },
-    sitemap: "https://wwwyourzaxbyscom.vercel.app/sitemap.xml",
+    sitemap: "https://yourzaxbys.hustlelaunch.com/sitemap.xml",
   };
 }

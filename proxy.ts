@@ -1,5 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
 
 const clerkReady =
   typeof process.env.CLERK_SECRET_KEY === "string" &&
@@ -32,13 +32,20 @@ const isPublicRoute = createRouteMatcher([
   "/sentry-example-page(.*)",
 ]);
 
-export default clerkReady
+const authenticate = clerkReady
   ? clerkMiddleware(async (auth, req) => {
       if (!isPublicRoute(req)) {
         await auth.protect();
       }
     })
   : () => NextResponse.next();
+
+export default function proxy(request: NextRequest, event: NextFetchEvent) {
+  // Anonymous public HTML must bypass Clerk's session handshake itself.
+  const needsSession = /^\/(?:login|signup|sign-in|sign-up|api)(?:\/|$)/.test(request.nextUrl.pathname);
+  if (isPublicRoute(request) && !needsSession) return NextResponse.next();
+  return authenticate(request, event);
+}
 
 export const config = {
   matcher: [

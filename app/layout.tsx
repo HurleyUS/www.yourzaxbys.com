@@ -11,6 +11,8 @@ import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yourzaxbys.hustlelaunch.com"),
+  alternates: { canonical: "./" },
   title: "Your ZAXBYS",
   description:
     "The store level management portal that enables your team to grow to win while they 'Consistently create encore experiences that enrich lives, one person at a time.'",
