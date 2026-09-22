@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/dashboard/", "/api/"],
+      disallow: ["/api/", "/dashboard/", "/team/", "/onboarding/"],
     },
-    sitemap: "https://www.yourzaxbys.com/sitemap.xml",
+    sitemap: "https://yourzaxbys.hustlelaunch.com/sitemap.xml",
   };
 }

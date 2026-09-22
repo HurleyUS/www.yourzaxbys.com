@@ -1,4 +1,11 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
+
+const clerkReady =
+  typeof process.env.CLERK_SECRET_KEY === "string" &&
+  process.env.CLERK_SECRET_KEY.length > 0 &&
+  typeof process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY === "string" &&
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.startsWith("pk_");
 
 const isPublicRoute = createRouteMatcher([
   "/",
@@ -19,20 +26,30 @@ const isPublicRoute = createRouteMatcher([
   "/community(.*)",
   "/status(.*)",
   "/api/webhook(.*)",
+  "/robots.txt",
+  "/sitemap.xml",
+  "/manifest.webmanifest",
   "/sentry-example-page(.*)",
 ]);
 
-export default clerkMiddleware(async (auth, req) => {
-  if (!isPublicRoute(req)) {
-    await auth.protect();
-  }
-});
+const authenticate = clerkReady
+  ? clerkMiddleware(async (auth, req) => {
+      if (!isPublicRoute(req)) {
+        await auth.protect();
+      }
+    })
+  : () => NextResponse.next();
+
+export default function proxy(request: NextRequest, event: NextFetchEvent) {
+  // Anonymous public HTML must bypass Clerk's session handshake itself.
+  const needsSession = /^\/(?:login|signup|sign-in|sign-up|api)(?:\/|$)/.test(request.nextUrl.pathname);
+  if (isPublicRoute(request) && !needsSession) return NextResponse.next();
+  return authenticate(request, event);
+}
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
     "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-    // Always run for API routes
     "/(api|trpc)(.*)",
   ],
 };
