@@ -73,6 +73,11 @@ export default function Home() {
               <div className="text-gray-600">User Rating</div>
             </div>
           </div>
+          <p className="mt-6 text-sm text-gray-500 max-w-2xl mx-auto">
+            Built by Michael C. Hurley under contract with Zaxby&apos;s
+            Franchising LLC. Figures shown are sample data for this product
+            demo, not measured results.
+          </p>
         </div>
       </section>
 
@@ -403,11 +408,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Proven Results for Zaxby's Franchisees
+              What the Platform Is Built to Deliver
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join hundreds of successful franchisees who have transformed their
-              operations
+              Numbers below are sample data for this product demo, not reported
+              franchise results.
             </p>
           </div>
 
