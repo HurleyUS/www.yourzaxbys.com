@@ -1,5 +1,9 @@
 # Zaxby's Franchise Management Platform
 
+Live demo: https://wwwyourzaxbyscom.vercel.app
+
+Built by Michael C. Hurley under contract with Zaxby's Franchising LLC. Marketing figures on the landing pages are sample data for this product demo, not measured results.
+
 A comprehensive management platform designed specifically for Zaxby's franchise owners, above-store team members, and in-store managers to streamline operations, track performance metrics, and manage all aspects of store operations.
 
 ## 🎯 Overview
@@ -132,7 +136,7 @@ npm run dev
 ## 📈 Performance Metrics
 
 - **Response Time**: < 2 seconds for all page loads
-- **Uptime**: 99.9% availability
+- **Uptime**: not measured (the 99.9% on the landing page is sample data)
 - **Scalability**: Support for 1000+ concurrent users
 - **Mobile Responsive**: Full functionality on mobile devices
 
